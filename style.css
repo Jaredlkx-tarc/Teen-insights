@@ -224,22 +224,22 @@ main.content {
 
   /* 🔧 Adjusted positions for better balance */
   .about-us {
-    top: 12%; /* was 10% */
+    top: 20%; /* was 10% */
     left: 50%;
     transform: translate(-50%, -50%);
   }
   .editor-approved {
-    top: 50%;
+    top: 60%;
     right: 8%; /* was 0% */
     transform: translate(50%, -50%);
   }
   .ctrl-backspace {
-    bottom: 12%; /* was 10% */
+    bottom: 20%; /* was 10% */
     left: 50%;
     transform: translate(-50%, 50%);
   }
   .news-not-boring {
-    top: 50%;
+    top: 60%;
     left: 8%; /* was 0% */
     transform: translate(-50%, -50%);
   }
