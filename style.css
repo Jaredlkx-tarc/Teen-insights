@@ -1,183 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-/* =========================
-   1. DESIGN TOKENS
-   ========================= */
-:root {
-  --font-body: 'Inter', system-ui, sans-serif;
-  --radius: 14px;
-  --shadow: 0 4px 12px rgba(0,0,0,0.08);
-
-  /* Base palette */
-  --bg: #fafafa;
-  --panel: #ffffff;
-  --text: #222;
-  --muted: #666;
-
-  /* Brand accents */
-  --accent: #ff5c5c; /* main brand red */
-  --link: #0066ff;
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-/* =========================
-   2. BASE STYLES
-   ========================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  font-size: 1rem;
-  padding: 1rem;
-}
-a {
-  color: var(--link);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-a:hover { text-decoration: underline; }
-img, video {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  display: block;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
-/* =========================
-   3. HEADER & FOOTER
-   ========================= */
+/* Header */
 header {
   text-align: center;
   margin-bottom: 2rem;
 }
-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
+header h1 a {
+  font-size: 3rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #ff4f81;
 }
 .tagline {
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-footer {
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-  text-align: center;
+  font-size: 1rem;
+  color: #ffeb3b;
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
-/* =========================
-   4. HOMEPAGE HUB (MOBILE-FIRST)
-   ========================= */
+/* Hub Container */
 .hub-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
 }
+
+/* Center Circle */
 .center-circle {
-  background: var(--accent);
-  color: #fff;
-  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 180px;
   height: 180px;
+  background: radial-gradient(circle at center, #ff4f81, #d81b60);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-align: center;
-  box-shadow: var(--shadow);
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255, 79, 129, 0.6);
   transition: transform 0.3s ease;
+  animation: pulse 2s infinite;
 }
-.center-circle:hover { transform: scale(1.05); }
+.center-circle:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 79, 129, 0.6); }
+  50% { box-shadow: 0 0 50px rgba(255, 79, 129, 0.9); }
+}
+
+/* Nav Items */
 .nav-item {
-  background: var(--panel);
-  color: var(--text);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  font-weight: 500;
+  position: absolute;
+  width: 220px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
   text-align: center;
-  width: 100%;
-  max-width: 320px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .nav-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
-/* =========================
-   5. CATEGORY NAV (OTHER PAGES)
-   ========================= */
-.category-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  background: var(--panel);
-  padding: 0.75rem 1rem;
-  box-shadow: var(--shadow);
-  overflow-x: auto;
+/* Triangle Pointer */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
 }
-.category-nav a {
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  color: var(--text);
-  white-space: nowrap;
+.about-us::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0 10px;
+  border-color: #fff transparent transparent transparent;
 }
-.category-nav a.active {
-  background: var(--accent);
-  color: #fff;
+.editor-approved::before {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #fff transparent;
 }
-
-/* =========================
-   6. ARTICLE & CARD STYLES
-   ========================= */
-.article {
-  background: var(--panel);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1rem;
+.ctrl-backspace::before {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #fff;
 }
-.article h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-.meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
-.location { font-weight: 600; margin-bottom: 1rem; }
-.hero-img {
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  margin-bottom: 1rem;
+.news-not-boring::before {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
 }
 
-/* =========================
-   7. RESPONSIVE DESKTOP LAYOUT
-   ========================= */
-@media (min-width: 821px) {
-  body { font-size: 1.1rem; }
-  header h1 { font-size: 2rem; }
+/* Positioning */
+.about-us {
+  top: 10%;
+  left: 10%;
+}
+.editor-approved {
+  top: 10%;
+  right: 10%;
+}
+.ctrl-backspace {
+  bottom: 10%;
+  right: 10%;
+}
+.news-not-boring {
+  bottom: 10%;
+  left: 10%;
+}
 
-  /* Homepage hub desktop positioning */
+/* Footer */
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .hub-container {
-    position: relative;
-    width: 600px;
-    height: 600px;
-    margin: 3rem auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
   }
   .center-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
-    font-size: 1.5rem;
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
   }
-  .about-us { position: absolute; top: 0; left: 50%; transform: translate(-50%, -100%); }
-  .news-not-boring { position: absolute; top: 50%; left: 0; transform: translate(-100%, -50%); }
-  .editor-approved { position: absolute; top: 50%; right: 0; transform: translate(100%, -50%); }
-  .ctrl-backspace { position: absolute; bottom: 0; left: 50%; transform: translate(-50%, 100%); }
-
-  /* Category nav centering */
-  .category-nav { justify-content: center; }
+  .nav-item {
+    position: static;
+    width: 100%;
+  }
+  .nav-item::before {
+    display: none;
+  }
 }
