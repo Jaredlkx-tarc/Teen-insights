@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
-  --bg: #f5f7fa;
+  --bg: #f9fafc;
   --panel: #ffffff;
-  --text: #222;
-  --muted: #666;
-  --accent: #ff6b6b;
-  --brand: #222;
-  --nav: #2f2f2f;
+  --text: #1a1a1a;
+  --muted: #777;
+  --accent: #ff5c5c;
+  --nav: #2c2c2c;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
 }
 
 * {
@@ -21,19 +21,22 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 1rem;
+  padding-bottom: 2rem;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 a:hover {
   text-decoration: underline;
 }
 
 header {
-  background: var(--brand);
+  background: var(--nav);
   color: #fff;
   padding: 1rem;
   text-align: center;
@@ -51,7 +54,101 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===== HUB CONTAINER (Mobile First) ===== */
+/* ===== Breadcrumbs ===== */
+.breadcrumbs {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+.breadcrumbs a {
+  color: var(--accent);
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Layout ===== */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+/* ===== Sidebar ===== */
+nav.sidebar {
+  background: var(--nav);
+  color: #fff;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+nav.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+nav.sidebar ul {
+  list-style: none;
+}
+nav.sidebar li {
+  margin: 0.5rem 0;
+}
+nav.sidebar a {
+  color: #fff;
+  display: block;
+  padding: 0.25rem 0;
+  transition: all 0.3s ease;
+}
+nav.sidebar a:hover {
+  color: var(--accent);
+}
+nav.sidebar a.active {
+  text-decoration: underline;
+}
+
+/* ===== Main Content ===== */
+main.content {
+  display: grid;
+  gap: 1rem;
+}
+
+/* ===== Article Styling ===== */
+.article {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.5s ease;
+}
+.article h2, .article h3 {
+  margin-top: 0;
+}
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.article p {
+  margin-bottom: 1em;
+}
+
+/* ===== Image Styling ===== */
+.hero-img,
+.article img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  display: block;
+  box-shadow: var(--shadow);
+}
+
+/* ===== Hub Layout ===== */
 .hub-container {
   display: flex;
   flex-direction: column;
@@ -59,7 +156,6 @@ footer {
   gap: 1rem;
   padding: 2rem 1rem;
 }
-
 .center-circle {
   background: var(--accent);
   color: #fff;
@@ -73,7 +169,6 @@ footer {
   font-weight: 700;
   box-shadow: var(--shadow);
 }
-
 .nav-item {
   background: var(--panel);
   padding: 0.75rem 1rem;
@@ -91,76 +186,7 @@ footer {
   transform: scale(1.05);
 }
 
-/* ===== SUBPAGE LAYOUT ===== */
-.layout {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 1100px;
-  margin: 1rem auto;
-  padding: 0 1rem 2rem;
-}
-
-nav.sidebar {
-  background: var(--nav);
-  color: #fff;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-}
-nav.sidebar h2 {
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-nav.sidebar ul {
-  list-style: none;
-}
-nav.sidebar li {
-  margin: 0.5rem 0;
-}
-nav.sidebar a {
-  color: #fff;
-}
-nav.sidebar a.active {
-  text-decoration: underline;
-}
-
-main.content {
-  display: grid;
-  gap: 1rem;
-}
-
-/* ===== ARTICLE STYLING (applies to all current & future articles) ===== */
-.article {
-  background: var(--panel);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.article h2 {
-  margin-top: 0;
-}
-.meta {
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-.article p {
-  margin-bottom: 1em;
-}
-.hero-img,
-.article img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-  display: block;
-}
-
-/* ===== RESPONSIVE TEXT FOR MOBILE ===== */
+/* ===== Responsive Text for Mobile ===== */
 @media (max-width: 600px) {
   .article {
     font-size: 1.05rem;
@@ -174,34 +200,12 @@ main.content {
   }
 }
 
-/* ===== RESPONSIVE PIE CHART OVERRIDE ===== */
-img[src*="marriage-pressure-chart"] {
-  display: block;
-  max-width: 90%;
-  height: auto;
-  margin: 1rem auto;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
+/* ===== Desktop Layout ===== */
 @media (min-width: 821px) {
-  img[src*="marriage-pressure-chart"] {
-    max-width: 400px;
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
   }
-}
-
-/* ===== RELATED CONTENT BOX ===== */
-.related {
-  background: var(--panel);
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-}
-.related h3 {
-  margin-top: 0;
-}
-
-/* ===== DESKTOP HUB ===== */
-@media (min-width: 821px) {
   .hub-container {
     position: relative;
     width: 500px;
@@ -229,10 +233,8 @@ img[src*="marriage-pressure-chart"] {
   .news-not-boring { top: 50%; left: 0; transform: translate(-50%, -50%); }
 }
 
-/* ===== DESKTOP SUBPAGES ===== */
-@media (min-width: 821px) {
-  .layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-  }
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
