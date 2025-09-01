@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us — Teen Insights</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    form {
+      background: var(--panel);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #e05555; }
+  </style>
 </head>
 <body>
 
@@ -19,7 +46,6 @@
       <li><a href="news.html">News Not Boring</a></li>
       <li><a href="ctrl-backspace.html">Ctrl Backspace</a></li>
       <li><a href="editor.html">#EditorApproved</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
     </ul>
   </nav>
 
@@ -38,8 +64,20 @@
 
     <article class="article">
       <h2>Feedback</h2>
-      <p>Help us improve Teen Insights. Share your thoughts, point out errors, or suggest new features.</p>
-      <p><a href="feedback.html">Go to the full feedback form</a></p>
+      <p>Help us improve Teen Insights. Share your thoughts, point out errors, or suggest new features. We read every submission and take your feedback seriously.</p>
+
+      <form action="#" method="post">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="feedback">Your Feedback</label>
+        <textarea id="feedback" name="feedback" rows="5" placeholder="Tell us what you think..." required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
     </article>
   </main>
 </div>
