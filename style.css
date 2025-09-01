@@ -229,7 +229,7 @@ main.content {
   }
   .editor-approved {
     top: 50%;
-    right: 50%;
+    right: 85%;
     transform: translate(50%, -50%);
   }
   .ctrl-backspace {
@@ -239,7 +239,7 @@ main.content {
   }
   .news-not-boring {
     top: 50%;
-    left: 50%;
+    left: 85%;
     transform: translate(-50%, -50%);
   }
 }
