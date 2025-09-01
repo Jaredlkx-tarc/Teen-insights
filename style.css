@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap');
 
 :root {
-  --bg: #fefefe;
-  --panel: #ffffff;
+  --bg: #fffdfc;
+  --panel: rgba(255,255,255,0.85);
   --text: #1a1a1a;
   --muted: #6c6c6c;
-  --accent: #ff3c6f;
+  --accent1: #ff3c6f;
+  --accent2: #ff7a45;
   --nav: #1e1e2f;
   --highlight: #ffd166;
-  --shadow: 0 4px 12px rgba(0,0,0,0.08);
-  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.12);
+  --radius: 14px;
+  --accent-gradient: linear-gradient(135deg, var(--accent1), var(--accent2));
 }
 
 * {
@@ -33,7 +35,7 @@ h1, h2, h3 {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent1);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -108,7 +110,7 @@ nav.sidebar a {
   transition: all 0.3s ease;
 }
 nav.sidebar a:hover {
-  color: var(--accent);
+  color: var(--accent1);
 }
 nav.sidebar a.active {
   text-decoration: underline;
@@ -123,6 +125,7 @@ main.content {
 /* ===== Article Styling ===== */
 .article {
   background: var(--panel);
+  backdrop-filter: blur(8px);
   border-radius: var(--radius);
   padding: 1.2rem;
   box-shadow: var(--shadow);
@@ -144,9 +147,6 @@ main.content {
   margin-left: auto;
   margin-right: auto;
 }
-
-/* ===== Image Styling ===== */
-.hero-img,
 .article img {
   width: 100%;
   height: auto;
@@ -163,10 +163,9 @@ main.content {
   align-items: center;
   gap: 1.2rem;
   padding: 2rem 1rem;
-  animation: fadeInUp 0.6s ease forwards;
 }
 .center-circle {
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: #fff;
   border-radius: 50%;
   width: 140px;
@@ -181,12 +180,14 @@ main.content {
   cursor: pointer;
 }
 .center-circle:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(2deg);
 }
 
 /* ===== Nav Items ===== */
 .nav-item {
   background: var(--panel);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
   padding: 1rem 1.2rem;
   border-radius: 30px;
   box-shadow: var(--shadow);
@@ -195,48 +196,68 @@ main.content {
   width: 100%;
   max-width: 320px;
   text-align: center;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
+  transition: all 0.4s ease;
 }
-.nav-item:nth-child(2) { animation-delay: 0.2s; }
-.nav-item:nth-child(3) { animation-delay: 0.4s; }
-.nav-item:nth-child(4) { animation-delay: 0.6s; }
-.nav-item:nth-child(5) { animation-delay: 0.8s; }
-
 .nav-item:hover {
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: #fff;
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
-/* ===== Desktop Layout ===== */
+/* ===== Desktop Hub Layout with Directional Logic ===== */
 @media (min-width: 821px) {
-  .layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-  }
-
   .hub-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 800px;
+    position: relative;
+    width: 500px;
+    height: 500px;
     margin: 3rem auto;
+    flex-direction: unset;
+    gap: 0;
   }
 
   .center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 180px;
     height: 180px;
     font-size: 1.2rem;
-    margin: 1rem;
   }
 
   .nav-item {
-    flex: 1 1 40%;
-    max-width: 300px;
+    position: absolute;
+    width: auto;
+    max-width: 280px;
+  }
+
+  .about-us {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    animation: slideUp 0.6s ease forwards;
+  }
+
+  .news-not-boring {
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    animation: slideLeft 0.6s ease forwards;
+  }
+
+  .editor-approved {
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    animation: slideRight 0.6s ease forwards;
+  }
+
+  .ctrl-backspace {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    animation: slideDown 0.6s ease forwards;
   }
 }
 
@@ -244,4 +265,20 @@ main.content {
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideLeft {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideRight {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
