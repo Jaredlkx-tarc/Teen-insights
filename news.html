@@ -8,27 +8,88 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <header>
   <h1><a href="index.html">Teen Insights</a></h1>
 </header>
 
 <div class="layout">
-  <nav class="sidebar">
-    <h2>News</h2>
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" aria-label="News categories">
+    <h2>News Categories</h2>
     <ul>
-      <li><a href="lifestyle.html">Lifestyle</a></li>
+      <li><a href="#general" class="active">General News</a></li>
+      <li><a href="#lifestyle">Lifestyle</a></li>
+      <li><a href="#entertainment">Entertainment</a></li>
+      <li><a href="#health">Health</a></li>
+      <li><a href="#rewrite">Re:write</a></li>
       <li><a href="ctrl-backspace.html">Ctrl Backspace</a></li>
-      <li><a href="editor.html">#EditorApproved</a></li>
-      <li><a href="about.html">About Us</a></li>
+      <li><a href="index.html">Home</a></li>
     </ul>
   </nav>
 
-  <main class="content">
-    <article class="article">
-      <h2>Latest Headlines</h2>
-      <div class="meta">Curated by Teen Insights</div>
-      <p>Here’s where you’ll find youth-focused news that’s relevant, sharp, and never boring. From education policy to pop culture shifts, we break it down with clarity and context.</p>
+  <!-- Main Content -->
+  <main id="main" class="content">
+    <div class="breadcrumbs">
+      <a href="index.html">Home</a> › News Not Boring
+    </div>
+
+    <!-- General News -->
+    <article id="general" class="article">
+      <h2>General News</h2>
+      <div class="meta">Published: Sept 1, 2025</div>
+      <img class="hero-img" src="images/general-placeholder.jpg" alt="Headline related image" />
+      <p>Malaysia’s emerging creator economy is reshaping teen media habits, with independent newsletters and short-form video challenging legacy outlets.</p>
     </article>
+
+    <!-- Lifestyle  -->
+    <article id="lifestyle" class="article">
+      <h2>Young Adults Delay Marriage as Finances and Freedom Take Priority</h2>
+      <div class="meta">By Jared Lee Kai Xuan | Thursday, 28 Aug 2025 | 9:24 AM MYT</div>
+      <img class="hero-img" src="images/online ass 3 (3) a.png" alt="Survey chart on marriage delay" />
+      <p><strong>KUALA LUMPUR:</strong> For many young Malaysians, marriage is no longer the first step toward adulthood, but rather something to postpone until life becomes more stable. Financial concerns, career ambitions, and personal independence are influencing how today's youth consider marriage.</p>
+      <p>One female student within the ages of 21 and 23 expressed her main fear as "financial instability, mainly due to inflation and rising living costs." Another full-time worker in the 24–26 age range simply replied, "Financial, marriage and family are expensive." Others highlighted that personal priorities come first, with some linking marriage to restriction and loss of freedom.</p>
+      <img class="hero-img" src="images/online ass (3) b.png" alt="Pie chart showing pressure to marry early" />
+      <p>When asked if they felt pressured by family or society to marry early, answers varied from “Not at all” to “Somewhat.” Many respondents stressed that marriage is a personal choice, best made when emotionally and financially ready.</p>
+      <img class="hero-img" src="images/online ass 3 (3) c.png" alt="Bar chart showing risks of early marriage" />
+      <p>Risks of marrying too early included financial instability, emotional immaturity, and lack of personal growth. However, delaying marriage too long was also seen as risky, with concerns about finding a suitable partner and potential health or fertility issues.</p>
+      <p>Ultimately, many agreed that stability should come first, believing that love alone is insufficient without maturity, independence, and financial readiness.</p>
+    </article>
+
+    <!-- Entertainment -->
+    <article id="entertainment" class="article">
+      <h2>Entertainment</h2>
+      <div class="meta">Published: Sept 1, 2025</div>
+      <img class="hero-img" src="images/entertainment-placeholder.jpg" alt="Entertainment related image" />
+      <p>Local film “Langit Merah” crosses a new milestone, fueled by community screenings and creator collabs.</p>
+    </article>
+
+    <!-- Health -->
+    <article id="health" class="article">
+      <h2>Health</h2>
+      <div class="meta">Published: Sept 1, 2025</div>
+      <img class="hero-img" src="images/health-placeholder.jpg" alt="Health related image" />
+      <p>New teen mental health initiatives are rolling out in schools, aiming to provide early support and reduce stigma.</p>
+    </article>
+
+    <!-- Re:write -->
+    <article id="rewrite" class="article">
+      <h2>Re:write</h2>
+      <div class="meta">Published: Sept 1, 2025</div>
+      <img class="hero-img" src="images/rewrite-placeholder.jpg" alt="Creative rewrite related image" />
+      <p>Classic fairy tales get a Gen Z twist in our latest Re:write series, blending modern slang with timeless morals.</p>
+    </article>
+
+    <!-- Related Links -->
+    <section class="related" aria-labelledby="related-news">
+      <h3 id="related-news">Related Links</h3>
+      <ul>
+        <li><a href="#entertainment">Behind the box office of “Langit Merah”</a></li>
+        <li><a href="ctrl-backspace.html">Go to Ctrl Backspace (Behind the Scene)</a></li>
+        <li><a href="index.html">Back to the Teen Insights hub</a></li>
+      </ul>
+    </section>
   </main>
 </div>
 
