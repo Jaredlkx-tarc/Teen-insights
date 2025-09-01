@@ -130,11 +130,15 @@ main.content {
   display: grid;
   gap: 1rem;
 }
+
+/* ===== ARTICLE STYLING (applies to all current & future articles) ===== */
 .article {
   background: var(--panel);
   border-radius: 10px;
   padding: 1rem;
   box-shadow: var(--shadow);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 .article h2 {
   margin-top: 0;
@@ -144,24 +148,48 @@ main.content {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
-.hero-img {
+.article p {
+  margin-bottom: 1em;
+}
+.hero-img,
+.article img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 0.75rem;
+  display: block;
 }
 
-/* Paragraph spacing inside articles */
-.article p {
-  margin-bottom: 1em;   /* desktop/tablet default */
-  line-height: 1.6;
-}
+/* ===== RESPONSIVE TEXT FOR MOBILE ===== */
 @media (max-width: 600px) {
+  .article {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    padding: 1rem 1.2rem;
+  }
   .article p {
-    margin-bottom: 0.8em; /* tighter on mobile */
-    line-height: 1.5;
+    max-width: 38ch;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
+/* ===== RESPONSIVE PIE CHART OVERRIDE ===== */
+img[src*="marriage-pressure-chart"] {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+@media (min-width: 821px) {
+  img[src*="marriage-pressure-chart"] {
+    max-width: 400px;
+  }
+}
+
+/* ===== RELATED CONTENT BOX ===== */
 .related {
   background: var(--panel);
   border-radius: 10px;
@@ -182,7 +210,6 @@ main.content {
     flex-direction: unset;
     gap: 0;
   }
-
   .center-circle {
     position: absolute;
     top: 50%;
@@ -192,12 +219,10 @@ main.content {
     height: 200px;
     font-size: 1.3rem;
   }
-
   .nav-item {
     position: absolute;
     width: auto;
   }
-
   .about-us { top: 10%; left: 50%; transform: translate(-50%, -50%); }
   .editor-approved { top: 50%; right: 0; transform: translate(50%, -50%); }
   .ctrl-backspace { bottom: 10%; left: 50%; transform: translate(-50%, 50%); }
