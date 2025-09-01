@@ -21,7 +21,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 1rem;
   padding-bottom: 2rem;
 }
@@ -121,9 +121,10 @@ main.content {
 .article {
   background: var(--panel);
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 1.2rem;
   box-shadow: var(--shadow);
-  animation: fadeIn 0.5s ease;
+  font-size: 1.05rem;
+  line-height: 1.75;
 }
 .article h2, .article h3 {
   margin-top: 0;
@@ -135,6 +136,9 @@ main.content {
 }
 .article p {
   margin-bottom: 1em;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ===== Image Styling ===== */
@@ -142,13 +146,13 @@ main.content {
 .article img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
+  border-radius: 10px;
+  margin: 1rem 0;
   display: block;
   box-shadow: var(--shadow);
 }
 
-/* ===== Hub Layout ===== */
+/* ===== Hub Layout (Mobile First) ===== */
 .hub-container {
   display: flex;
   flex-direction: column;
@@ -186,26 +190,13 @@ main.content {
   transform: scale(1.05);
 }
 
-/* ===== Responsive Text for Mobile ===== */
-@media (max-width: 600px) {
-  .article {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    padding: 1rem 1.2rem;
-  }
-  .article p {
-    max-width: 38ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 /* ===== Desktop Layout ===== */
 @media (min-width: 821px) {
   .layout {
     display: grid;
     grid-template-columns: 240px 1fr;
   }
+
   .hub-container {
     position: relative;
     width: 500px;
@@ -214,6 +205,7 @@ main.content {
     flex-direction: unset;
     gap: 0;
   }
+
   .center-circle {
     position: absolute;
     top: 50%;
@@ -223,10 +215,12 @@ main.content {
     height: 200px;
     font-size: 1.3rem;
   }
+
   .nav-item {
     position: absolute;
     width: auto;
   }
+
   .about-us { top: 10%; left: 50%; transform: translate(-50%, -50%); }
   .editor-approved { top: 50%; right: 0; transform: translate(50%, -50%); }
   .ctrl-backspace { bottom: 10%; left: 50%; transform: translate(-50%, 50%); }
