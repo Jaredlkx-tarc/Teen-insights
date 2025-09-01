@@ -195,9 +195,11 @@ main.content {
 @media (min-width: 821px) {
   .hub-container {
     position: relative;
-    width: 500px; /* or larger if you want more breathing room */
+    width: 500px;
     height: 500px;
-    margin: 3rem auto;
+    margin: 6rem auto 3rem; /* was 3rem auto — pushes hub further down */
+  }
+}
   }
 
   .center-circle {
@@ -216,10 +218,13 @@ main.content {
   }
 
   /* Push items further out from the center */
+ @media (min-width: 821px) {
   .about-us {
-    top: -5%; /* was 10% — negative moves it further up, away from center */
+    top: 0%; /* was 10% — moves it further from center */
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+}
   }
 
   .editor-approved {
@@ -229,7 +234,7 @@ main.content {
   }
 
   .ctrl-backspace {
-    bottom: -5%; /* was 10% — negative pushes it further down */
+    bottom: 0%; /* was 10% — negative pushes it further down */
     left: 50%;
     transform: translate(-50%, 50%);
   }
