@@ -150,6 +150,18 @@ main.content {
   margin-bottom: 0.75rem;
 }
 
+/* Paragraph spacing inside articles */
+.article p {
+  margin-bottom: 1em;   /* desktop/tablet default */
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .article p {
+    margin-bottom: 0.8em; /* tighter on mobile */
+    line-height: 1.5;
+  }
+}
+
 .related {
   background: var(--panel);
   border-radius: 10px;
@@ -198,11 +210,4 @@ main.content {
     display: grid;
     grid-template-columns: 240px 1fr;
   }
-}s: 240px 1fr;
-  }
-}
-/* Consistent paragraph spacing inside articles */
-.article p {
-  margin-bottom: 1em;   /* roughly one line of space after each paragraph */
-  line-height: 1.6;     /* improves readability inside each paragraph */
 }
