@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ctrl Backspace — Teen Insights</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <h1>Teen Insights</h1>
+    <div class="tools">Tools</div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Sections">
+      <h2>Sections</h2>
+      <ul>
+        <li><a href="#video" class="active">Video</a></li>
+        <li><a href="#photo">Photo</a></li>
+        <li><a href="news.html">News Not Boring</a></li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="content">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> › Ctrl Backspace
+      </div>
+
+      <article id="video" class="article">
+        <h2>Video</h2>
+        <div class="meta">Editor Approval: Featured</div>
+        <img class="hero-img" src="images/video-bts.jpg" alt="Behind the scenes video still" />
+        <p>On-set workflow from storyboard to first cut: how a 3-person crew captured the “Langit Merah” night scenes.</p>
+      </article>
+
+      <article id="photo" class="article">
+        <h2>Photo</h2>
+        <div class="meta">Gallery</div>
+        <img class="hero-img" src="images/photo-bts.jpg" alt="Backstage photo shoot" />
+        <p>Lighting setups for tight spaces: a quick guide to bounce, flags, and practicals for portrait mood.</p>
+      </article>
+
+      <section class="related" aria-labelledby="related-bts">
+        <h3 id="related-bts">Related Links</h3>
+        <ul>
+          <li><a href="news.html#entertainment">Entertainment coverage for context</a></li>
+          <li><a href="news.html#music">Music pipeline notes</a></li>
+          <li><a href="index.html">Back to the Teen Insights hub</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>© 2025 Teen Insights</footer>
+</body>
+</html>
