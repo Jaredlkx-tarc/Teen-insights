@@ -195,11 +195,9 @@ main.content {
 @media (min-width: 821px) {
   .hub-container {
     position: relative;
-    width: 500px;
+    width: 500px;   /* original size */
     height: 500px;
-    margin: 6rem auto 3rem; /* was 3rem auto — pushes hub further down */
-  }
-}
+    margin: 3rem auto; /* center the hub on the page */
   }
 
   .center-circle {
@@ -217,32 +215,29 @@ main.content {
     width: auto;
   }
 
-  /* Push items further out from the center */
- @media (min-width: 821px) {
+  /* Original cross positions */
   .about-us {
-    top: 0%; /* was 10% — moves it further from center */
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-}
-  }
-
-  .editor-approved {
-    top: 50%;
-    right: -5%; /* was 8% — negative pushes it further right */
-    transform: translate(50%, -50%);
-  }
-
-  .ctrl-backspace {
-    bottom: 0%; /* was 10% — negative pushes it further down */
-    left: 50%;
-    transform: translate(-50%, 50%);
   }
 
   .news-not-boring {
     top: 50%;
-    left: -5%; /* was 8% — negative pushes it further left */
-    transform: translate(-50%, -50%);
+    left: 0;
+    transform: translate(-100%, -50%);
+  }
+
+  .editor-approved {
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+  }
+
+  .ctrl-backspace {
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
   }
 }
 /* ===== Animations ===== */
