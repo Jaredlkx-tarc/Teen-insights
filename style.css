@@ -208,42 +208,39 @@ main.content {
   }
 
   .center-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
-    font-size: 1.3rem;
-  }
-
-  .nav-item {
-    position: absolute;
-    width: auto;
-  }
-
-  .about-us {
-    top: 12%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .editor-approved {
-    top: 50%;
-    right: 85%;
-    transform: translate(50%, -50%);
-  }
-  .ctrl-backspace {
-    bottom: 12%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-  .news-not-boring {
-    top: 50%;
-    left: 85%;
-    transform: translate(-50%, -50%);
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.about-us {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.editor-approved {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
+
+.ctrl-backspace {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.news-not-boring {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
 /* ===== Animations ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
