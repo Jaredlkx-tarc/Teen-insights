@@ -51,7 +51,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===== HUB CONTAINER ===== */
+/* ===== HUB CONTAINER (Mobile First) ===== */
 .hub-container {
   display: flex;
   flex-direction: column;
@@ -197,5 +197,7 @@ main.content {
   .layout {
     display: grid;
     grid-template-columns: 240px 1fr;
+  }
+}s: 240px 1fr;
   }
 }
