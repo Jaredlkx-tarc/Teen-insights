@@ -1,195 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
 
 :root {
-  --bg: #fafafa;
-  --panel: #ffffff;
-  --text: #222;
-  --muted: #666;
-  --accent: #ff5c5c;
-  --link: #0066ff;
-  --shadow: 0 4px 12px rgba(0,0,0,0.08);
-  --radius: 14px;
+  --bg: #000;
+  --text: #fff;
+  --accent: #ff3c3c;
+  --muted: #aaa;
+  --radius: 999px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
-}
-
-/* ===== Header ===== */
-header {
   text-align: center;
-  padding: 1.5rem 1rem 1rem;
-}
-header h1 a {
-  font-size: 2rem;
-  color: var(--text);
-  text-decoration: none;
-}
-.tagline {
-  font-size: 1rem;
-  color: var(--muted);
-}
-
-/* ===== Homepage Hub ===== */
-.hub-container {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  height: 600px;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
+  line-height: 1.5;
   padding: 1rem;
 }
+
+/* Header */
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.tagline {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* Center Circle */
 .center-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background: var(--accent);
+  color: var(--text);
   width: 180px;
   height: 180px;
-  background: var(--accent);
   border-radius: 50%;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 auto 2rem;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease;
 }
 .center-circle:hover {
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: scale(1.05);
 }
-.nav-item {
-  position: absolute;
-  width: 220px;
-  padding: 1rem;
-  background: var(--panel);
-  border: 1px solid #eee;
-  border-radius: var(--radius);
-  text-align: center;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.nav-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-}
-/* Triangle pointers */
-.nav-item::before {
-  content: '';
-  position: absolute;
-  width: 0; height: 0;
-  border-style: solid;
-}
-.about-us::before { top: 100%; left: 50%; transform: translateX(-50%); border-width: 10px 10px 0 10px; border-color: #eee transparent transparent transparent; }
-.editor-approved::before { bottom: 100%; left: 50%; transform: translateX(-50%); border-width: 0 10px 10px 10px; border-color: transparent transparent #eee transparent; }
-.ctrl-backspace::before { top: 50%; left: 100%; transform: translateY(-50%); border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #eee; }
-.news-not-boring::before { top: 50%; right: 100%; transform: translateY(-50%); border-width: 10px 10px 10px 0; border-color: transparent #eee transparent transparent; }
-/* Desktop positions */
-.about-us { top: 0; left: 50%; transform: translate(-50%, -100%); }
-.news-not-boring { top: 50%; left: 0; transform: translate(-100%, -50%); }
-.editor-approved { top: 50%; right: 0; transform: translate(100%, -50%); }
-.ctrl-backspace { bottom: 0; left: 50%; transform: translate(-50%, 100%); }
 
-/* ===== Category Nav (Articles) ===== */
-.category-nav {
+/* Nav Buttons */
+.nav-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  background: #fff;
-  padding: 0.75rem 1rem;
-  box-shadow: var(--shadow);
-  overflow-x: auto;
+  flex-direction: column;
+  gap: 1rem;
 }
-.category-nav a {
-  padding: 0.5rem 0.75rem;
+.nav-btn {
+  display: block;
+  background: var(--text);
+  color: var(--bg);
+  padding: 0.75rem 1rem;
   border-radius: var(--radius);
   font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.nav-btn:hover {
+  background: var(--accent);
   color: var(--text);
-  white-space: nowrap;
-  transition: background 0.2s ease;
+  transform: translateY(-2px);
 }
-.category-nav a:hover { background: #f0f0f0; }
-.category-nav a.active { background: var(--accent); color: #fff; }
-
-/* ===== Article Page ===== */
-.article-page {
-  max-width: 800px;
-  margin: 1rem auto;
-  padding: 0 1rem;
-}
-.article h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-.article .meta {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
-.article .location {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-.hero-img {
-  width: 100%;
-  border-radius: var(--radius);
-  margin: 1rem 0;
-  object-fit: cover;
+.nav-btn.active {
+  background: var(--accent);
+  color: var(--text);
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
-  margin-top: 3rem;
-  font-size: 0.9rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  text-align: center;
-  padding: 1rem;
 }
 
-/* ===== Mobile Layout ===== */
-@media (max-width: 768px) {
-  /* Homepage hub stacks */
-  .hub-container {
-    height: auto;
-    display: flex;
-    flex-direction: column;
+/* Desktop: same design, more space */
+@media (min-width: 821px) {
+  .hub {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
-    padding: 2rem 1rem;
   }
-  .center-circle {
-    position: static;
-    transform: none;
-    width: 200px;
-    height: 200px;
-    font-size: 1.6rem;
-    margin: 0 auto 1rem;
-  }
-  .nav-item {
-    position: static;
-    width: 100%;
-  }
-  .nav-item::before {
-    display: none;
-  }
-  /* Article adjustments */
-  .article h2 {
-    font-size: 1.25rem;
-  }
-  .category-nav {
-    gap: 0.25rem;
-    padding: 0.5rem;
+  .nav-btn {
+    min-width: 200px;
   }
 }
