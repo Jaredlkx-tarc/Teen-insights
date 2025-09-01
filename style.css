@@ -230,7 +230,7 @@ main.content {
   }
   .editor-approved {
     top: 50%;
-    right: 20%; /* was 0% */
+    right: -20%; /* was 0% */
     transform: translate(50%, -50%);
   }
   .ctrl-backspace {
@@ -240,7 +240,7 @@ main.content {
   }
   .news-not-boring {
     top: 50%;
-    left: 20%; /* was 0% */
+    left: -20%; /* was 0% */
     transform: translate(-50%, -50%);
   }
 }
