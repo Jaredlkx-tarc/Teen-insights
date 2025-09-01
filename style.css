@@ -191,13 +191,19 @@ main.content {
 }
 
 /* ===== Desktop Layout ===== */
-/* Only layout/spacing changes — colours stay identical to mobile */
 @media (min-width: 821px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+  }
+
   .hub-container {
     position: relative;
-    width: 500px;   /* original size */
+    width: 500px;
     height: 500px;
-    margin: 3rem auto; /* center the hub on the page */
+    margin: 3rem auto;
+    flex-direction: unset;
+    gap: 0;
   }
 
   .center-circle {
@@ -215,31 +221,12 @@ main.content {
     width: auto;
   }
 
-  /* Original cross positions */
-  .about-us {
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .news-not-boring {
-    top: 50%;
-    left: 0;
-    transform: translate(-100%, -50%);
-  }
-
-  .editor-approved {
-    top: 50%;
-    right: 0;
-    transform: translate(100%, -50%);
-  }
-
-  .ctrl-backspace {
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
+  .about-us { top: 10%; left: 50%; transform: translate(-50%, -50%); }
+  .editor-approved { top: 50%; right: 0; transform: translate(50%, -50%); }
+  .ctrl-backspace { bottom: 10%; left: 50%; transform: translate(-50%, 50%); }
+  .news-not-boring { top: 50%; left: 0; transform: translate(-50%, -50%); }
 }
+
 /* ===== Animations ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
