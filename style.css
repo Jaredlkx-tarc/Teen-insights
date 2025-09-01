@@ -201,3 +201,8 @@ main.content {
 }s: 240px 1fr;
   }
 }
+/* Consistent paragraph spacing inside articles */
+.article p {
+  margin-bottom: 1em;   /* roughly one line of space after each paragraph */
+  line-height: 1.6;     /* improves readability inside each paragraph */
+}
