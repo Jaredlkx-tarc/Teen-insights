@@ -163,18 +163,13 @@ main.content {
   object-fit: cover; /* default for most images */
 }
 
-/* Portrait images on desktop */
+/* On desktop, force a landscape frame for portrait images */
 @media (aspect-ratio < 1/1) and (min-width: 901px) {
   .hero-img {
-    max-height: 500px;    /* limit vertical size */
-    width: auto;          /* let width adjust naturally */
-    max-width: 100%;      /* don’t overflow container */
-    object-fit: contain;  /* keep full image visible */
-    background-color: #fff;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    aspect-ratio: 16 / 9; /* force landscape shape */
+    height: auto;
+    object-fit: cover;    /* crop to fit the frame */
+  }
 }
 
 /* Portrait images on mobile */
