@@ -259,28 +259,42 @@ main.content {
   }
 }
 
-/* ===== Animations ===== */
-@keyframes slideFromTop {
-  from { transform: translate(-50%, -150%); opacity: 0; }
-  to { transform: translate(-50%, -50%); opacity: 1; }
-}
-@keyframes slideFromRight {
-  from { transform: translate(150%, -50%); opacity: 0; }
-  to { transform: translate(50%, -50%); opacity: 1; }
-}
-@keyframes slideFromBottom {
-  from { transform: translate(-50%, 150%); opacity: 0; }
-  to { transform: translate(-50%, 50%); opacity: 1; }
-}
-@keyframes slideFromLeft {
-  from { transform: translate(-150%, -50%); opacity: 0; }
-  to { transform: translate(-50%, -50%); opacity: 1; }
+/* =========================================================
+   ANIMATIONS — DESKTOP + MOBILE
+   ========================================================= */
+
+/* ===== Desktop Arrow-Direction Animations ===== */
+@keyframes slideFromTop { … }
+@keyframes slideFromRight { … }
+@keyframes slideFromBottom { … }
+@keyframes slideFromLeft { … }
+
+/* Assign animations with stagger for desktop hub */
+@media (min-width: 821px) {
+  .about-us { … }
+  .editor-approved { … }
+  .ctrl-backspace { … }
+  .news-not-boring { … }
 }
 
-/* Reduced motion support */
+/* ===== Mobile Enhancements ===== */
+@media (max-width: 820px) {
+  .nav-item { … }
+  .nav-item.animate-in { … }
+  @keyframes pulse { … }
+  .center-circle { … }
+  .nav-item:active { … }
+}
+
+/* ===== Hero Image Fade-In for Articles (all devices) ===== */
+.article img { … }
+@keyframes fadeIn { … }
+
+/* ===== Footer Slide-Up Reveal ===== */
+@keyframes slideUp { … }
+footer { … }
+
+/* ===== Reduced Motion Support ===== */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  * { … }
 }
