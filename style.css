@@ -151,7 +151,7 @@ main.content {
   margin-right: auto;
 }
 
-/* Base image style — applies to all images, all screen sizes */
+/* ===== Images ===== */
 .hero-img {
   width: 100%;
   height: auto;
@@ -159,29 +159,30 @@ main.content {
   margin: 1rem 0;
   border-radius: 10px;
   box-shadow: var(--shadow);
-  object-fit: cover; /* default: fills frame */
+  object-fit: cover;
 }
 
 /* Portrait on mobile: show full, don’t overwhelm */
 @media (max-width: 900px) {
   .hero-img.portrait {
-    object-fit: contain;   /* no cropping on phones */
-    max-height: 80vh;      /* keep it from taking the whole screen */
-    background: #fff;      /* optional letterbox fill */
+    object-fit: contain;
+    max-height: 80vh;
+    background: #fff;
   }
 }
+
 figure {
   margin: 1rem 0;
-  text-align: center; /* keeps the image centered */
+  text-align: center;
 }
-
 figcaption {
-  text-align: left;    /* aligns caption text to the left */
+  text-align: left;
   font-size: 0.85rem;
   color: #666;
   margin-top: 0.5rem;
   line-height: 1.4;
 }
+
 /* ===== Hub Layout (Mobile First) ===== */
 .hub-container {
   display: flex;
@@ -202,8 +203,7 @@ figcaption {
   font-size: 1rem;
   font-weight: 700;
   box-shadow: var(--shadow);
-
-  white-space: nowrap; /* NEW: prevents "TEEN" and "INSIGHTS" from breaking into two lines */
+  white-space: nowrap;
 }
 .nav-item {
   background: var(--panel);
@@ -229,7 +229,6 @@ figcaption {
     display: grid;
     grid-template-columns: 240px 1fr;
   }
-
   .hub-container {
     position: relative;
     width: 500px;
@@ -238,7 +237,6 @@ figcaption {
     flex-direction: unset;
     gap: 0;
   }
-
   .center-circle {
     position: absolute;
     top: 50%;
@@ -248,13 +246,10 @@ figcaption {
     height: 200px;
     font-size: 1.3rem;
   }
-
   .nav-item {
     position: absolute;
     width: auto;
   }
-
-  /* Positions + animations */
   .about-us {
     top: 12%;
     left: 50%;
@@ -281,37 +276,31 @@ figcaption {
   }
 }
 
-/* =========================================================
-   ANIMATIONS — DESKTOP + MOBILE
-   ========================================================= */
-
-/* ===== Desktop Arrow-Direction Animations ===== */
+/* ===== Animations ===== */
 @keyframes slideFromTop {
   from { transform: translate(-50%, -150%); opacity: 0; }
-  to   { transform: translate(-50%, -50%); opacity: 1; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
 }
 @keyframes slideFromRight {
   from { transform: translate(150%, -50%); opacity: 0; }
-  to   { transform: translate(50%, -50%); opacity: 1; }
+  to { transform: translate(50%, -50%); opacity: 1; }
 }
 @keyframes slideFromBottom {
   from { transform: translate(-50%, 150%); opacity: 0; }
-  to   { transform: translate(-50%, 50%); opacity: 1; }
+  to { transform: translate(-50%, 50%); opacity: 1; }
 }
 @keyframes slideFromLeft {
   from { transform: translate(-150%, -50%); opacity: 0; }
-  to   { transform: translate(-50%, -50%); opacity: 1; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
 }
-
-/* Assign animations with stagger for desktop hub */
 @media (min-width: 821px) {
-  .about-us { animation: slideFromTop 0.8s ease-out forwards; animation-delay: 0s; }
-  .editor-approved { animation: slideFromRight 0.8s ease-out forwards; animation-delay: 0.2s; }
-  .ctrl-backspace { animation: slideFromBottom 0.8s ease-out forwards; animation-delay: 0.4s; }
-  .news-not-boring { animation: slideFromLeft 0.8s ease-out forwards; animation-delay: 0.6s; }
+  .about-us { animation-delay: 0s; }
+  .editor-approved { animation-delay: 0.2s; }
+  .ctrl-backspace { animation-delay: 0.4s; }
+  .news-not-boring { animation-delay: 0.6s; }
 }
 
-/* ===== Scroll-Fade Animation (Mobile + Reusable) ===== */
+/* ===== Scroll-Fade ===== */
 .scroll-fade {
   opacity: 0;
   transform: translateY(20px);
@@ -347,61 +336,16 @@ footer {
     transition: none !important;
   }
 }
-/* ===== FINAL OVERRIDE: Portrait images on desktop ===== */
+
+/* ===== Desktop: Let images break out of text column ===== */
 @media (min-width: 901px) {
-  .hero-img.portrait {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    background-color: transparent !important;
-  }
-}
-@media (min-width: 901px) {
-  .article .hero-img.portrait {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    background-color: transparent !important;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-You should paste that block right at the very end of your style.css file, after every other rule — even after your last @media block.  
-
-In the CSS you sent earlier, your file currently ends like this:  
-`css
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-`
-
-So you’d scroll to the bottom, go after that closing } and then paste your new block:
-
-`css
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/ ===== Desktop: Let images break out of text column ===== /
-@media (min-width: 901px) {
+  /* Remove paragraph/figure width limit for images */
   .article p,
   .article figure {
     max-width: none;
   }
 
+  /* Make hero images fill the article width */
   .article img.hero-img {
     display: block;
     width: 100%;
