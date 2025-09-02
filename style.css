@@ -274,25 +274,3 @@ main.content {
     transform: translateY(0);
   }
 }
-
-/* ===== Mobile Enhancements ===== */
-@media (max-width: 820px) {
-  .nav-item { … }
-  .nav-item.animate-in { … }
-  @keyframes pulse { … }
-  .center-circle { … }
-  .nav-item:active { … }
-}
-
-/* ===== Hero Image Fade-In for Articles (all devices) ===== */
-.article img { … }
-@keyframes fadeIn { … }
-
-/* ===== Footer Slide-Up Reveal ===== */
-@keyframes slideUp { … }
-footer { … }
-
-/* ===== Reduced Motion Support ===== */
-@media (prefers-reduced-motion: reduce) {
-  * { … }
-}
