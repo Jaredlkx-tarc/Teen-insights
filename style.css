@@ -373,14 +373,35 @@ footer {
   }
 }
 
-/* ===== Desktop: Let images break out of text column ===== */
+You should paste that block right at the very end of your style.css file, after every other rule — even after your last @media block.  
+
+In the CSS you sent earlier, your file currently ends like this:  
+`css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+`
+
+So you’d scroll to the bottom, go after that closing } and then paste your new block:
+
+`css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/ ===== Desktop: Let images break out of text column ===== /
 @media (min-width: 901px) {
-  /* Remove paragraph width limit when it contains an image */
-  .article p:has(img.hero-img) {
+  .article p,
+  .article figure {
     max-width: none;
   }
 
-  /* Make sure hero images fill the article width */
   .article img.hero-img {
     display: block;
     width: 100%;
