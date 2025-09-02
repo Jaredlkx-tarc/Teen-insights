@@ -155,11 +155,20 @@ main.content {
 .hero-img,
 .article img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 9; /* keeps a consistent frame */
+  object-fit: cover;    /* fills frame, crops excess */
   border-radius: 10px;
   margin: 1rem 0;
   display: block;
   box-shadow: var(--shadow);
+}
+
+/* Mobile tweak: slightly taller frame for small screens */
+@media (max-width: 600px) {
+  .hero-img,
+  .article img {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 /* ===== Hub Layout (Mobile First) ===== */
