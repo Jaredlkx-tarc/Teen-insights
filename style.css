@@ -184,6 +184,18 @@ main.content {
     background-color: transparent;
   }
 }
+figure {
+  margin: 1rem 0;
+  text-align: center; /* keeps the image centered */
+}
+
+figcaption {
+  text-align: left;    /* aligns caption text to the left */
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
 /* ===== Hub Layout (Mobile First) ===== */
 .hub-container {
   display: flex;
