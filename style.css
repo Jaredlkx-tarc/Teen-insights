@@ -151,7 +151,7 @@ main.content {
   margin-right: auto;
 }
 
-/* ===== Image Styling ===== */
+/* ===== Default image styling ===== */
 .hero-img,
 .article img {
   width: 100%;
@@ -160,17 +160,25 @@ main.content {
   margin: 1rem 0;
   display: block;
   box-shadow: var(--shadow);
-}
-/* Portrait override */
-.portrait {
-  object-fit: contain;
-  background-color: #fff;
+  object-fit: cover; /* default for most images */
 }
 
-/* Mobile tweak */
-@media (max-width: 600px) {
-  .portrait {
-    max-height: 80vh; /* 80% of the viewport height */
+/* ===== Portrait images on desktop ===== */
+@media (aspect-ratio < 1/1) and (min-width: 601px) {
+  .hero-img {
+    max-width: 800px;     /* limit size on desktop */
+    object-fit: contain;  /* show full image without cropping */
+    background-color: #fff;
+  }
+}
+
+/* ===== Portrait images on mobile ===== */
+@media (aspect-ratio < 1/1) and (max-width: 600px) {
+  .hero-img {
+    max-width: 100%;      /* take full width of mobile screen */
+    max-height: 80vh;     /* but not taller than 80% of viewport height */
+    object-fit: contain;
+    background-color: #fff;
   }
 }
 /* ===== Figure & Caption Styling ===== */
