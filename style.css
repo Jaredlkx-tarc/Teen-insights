@@ -31,8 +31,10 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-a:hover {
+a:hover,
+a:focus {
   text-decoration: underline;
+  outline: none;
 }
 
 header {
@@ -65,7 +67,8 @@ footer {
 .breadcrumbs a {
   color: var(--accent);
 }
-.breadcrumbs a:hover {
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
   text-decoration: underline;
 }
 
@@ -104,7 +107,8 @@ nav.sidebar a {
   padding: 0.25rem 0;
   transition: all 0.3s ease;
 }
-nav.sidebar a:hover {
+nav.sidebar a:hover,
+nav.sidebar a:focus {
   color: var(--accent);
 }
 nav.sidebar a.active {
@@ -125,6 +129,11 @@ main.content {
   box-shadow: var(--shadow);
   font-size: 1.05rem;
   line-height: 1.75;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 .article h2,
 .article h3 {
@@ -185,7 +194,8 @@ main.content {
   text-align: center;
   transition: all 0.3s ease;
 }
-.nav-item:hover {
+.nav-item:hover,
+.nav-item:focus {
   background: var(--accent);
   color: #fff;
   transform: scale(1.05);
@@ -202,7 +212,7 @@ main.content {
     position: relative;
     width: 500px;
     height: 500px;
-    margin: 3rem auto;
+    margin: 4rem auto;
     flex-direction: unset;
     gap: 0;
   }
@@ -222,39 +232,55 @@ main.content {
     width: auto;
   }
 
-  /* 🔧 Adjusted positions for better balance */
- .about-us {
-    top: 12%; /* was 10% */
+  /* Positions + animations */
+  .about-us {
+    top: 12%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: slideFromTop 0.8s ease-out forwards;
   }
   .editor-approved {
     top: 50%;
-    right: -20%; /* was 0% */
+    right: -20%;
     transform: translate(50%, -50%);
+    animation: slideFromRight 0.8s ease-out 0.2s forwards;
   }
   .ctrl-backspace {
-    bottom: 12%; /* was 10% */
+    bottom: 12%;
     left: 50%;
     transform: translate(-50%, 50%);
+    animation: slideFromBottom 0.8s ease-out 0.4s forwards;
   }
   .news-not-boring {
     top: 50%;
-    left: -20%; /* was 0% */
+    left: -20%;
     transform: translate(-50%, -50%);
+    animation: slideFromLeft 0.8s ease-out 0.6s forwards;
   }
 }
 
-
-
 /* ===== Animations ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes slideFromTop {
+  from { transform: translate(-50%, -150%); opacity: 0; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
+}
+@keyframes slideFromRight {
+  from { transform: translate(150%, -50%); opacity: 0; }
+  to { transform: translate(50%, -50%); opacity: 1; }
+}
+@keyframes slideFromBottom {
+  from { transform: translate(-50%, 150%); opacity: 0; }
+  to { transform: translate(-50%, 50%); opacity: 1; }
+}
+@keyframes slideFromLeft {
+  from { transform: translate(-150%, -50%); opacity: 0; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
