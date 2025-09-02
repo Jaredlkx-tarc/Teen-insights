@@ -155,12 +155,19 @@ main.content {
 .hero-img,
 .article img {
   width: 100%;
-  aspect-ratio: 16 / 9; /* keeps a consistent frame */
+  aspect-ratio: 16 / 9; /* keeps a consistent frame for most images */
   object-fit: cover;    /* fills frame, crops excess */
   border-radius: 10px;
   margin: 1rem 0;
   display: block;
   box-shadow: var(--shadow);
+}
+/* Portrait override — shows full image without cropping */
+.portrait {
+  aspect-ratio: auto;   /* let the image keep its natural height */
+  height: auto;
+  object-fit: contain;  /* show the whole image */
+  background-color: #fff; /* optional: fills letterbox space */
 }
 
 /* Mobile tweak: slightly taller frame for small screens */
