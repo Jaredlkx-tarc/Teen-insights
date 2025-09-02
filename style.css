@@ -163,38 +163,29 @@ main.content {
   object-fit: cover; /* default for most images */
 }
 
-/* ===== Portrait images on desktop ===== */
+/* Portrait images on desktop */
 @media (aspect-ratio < 1/1) and (min-width: 601px) {
   .hero-img {
-    max-width: 800px;     /* limit size on desktop */
-    object-fit: contain;  /* show full image without cropping */
+    max-width: 800px;     /* match your article column width */
+    width: 100%;          /* still responsive */
+    height: auto;
+    object-fit: contain;  /* no cropping */
     background-color: #fff;
+    margin-left: auto;    /* center horizontally */
+    margin-right: auto;
+    display: block;
   }
 }
 
-/* ===== Portrait images on mobile ===== */
+/* Portrait images on mobile */
 @media (aspect-ratio < 1/1) and (max-width: 600px) {
   .hero-img {
-    max-width: 100%;      /* take full width of mobile screen */
-    max-height: 80vh;     /* but not taller than 80% of viewport height */
+    max-width: 100%;
+    max-height: 80vh;     /* don’t let it fill the whole screen */
     object-fit: contain;
     background-color: #fff;
   }
 }
-/* ===== Figure & Caption Styling ===== */
-figure {
-  margin: 1rem 0;
-  text-align: center; /* keeps the image centered */
-}
-
-figcaption {
-  text-align: left;    /* aligns caption text to the left */
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 0.5rem;
-  line-height: 1.4;
-}
-
 /* ===== Hub Layout (Mobile First) ===== */
 .hub-container {
   display: flex;
