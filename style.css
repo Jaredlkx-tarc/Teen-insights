@@ -171,16 +171,18 @@ main.content {
   }
 }
 
-/* Portrait images on desktop — smaller, centered */
-@media (aspect-ratio < 1/1) and (min-width: 901px) {
+/* Portrait images on desktop — same as default */
+@media (min-width: 901px) {
   .hero-img {
-    max-width: 400px;   /* smaller than before */
-    max-height: 70vh;   /* keep it from being too tall */
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: contain;
-    background-color: #fff;
-  }
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1rem 0;
+    display: block;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    background-color: transparent;
+  }
 }
 /* ===== Hub Layout (Mobile First) ===== */
 .hub-container {
