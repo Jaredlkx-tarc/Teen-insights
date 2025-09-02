@@ -170,6 +170,18 @@ main.content {
     aspect-ratio: 4 / 3;
   }
 }
+/* ===== Figure & Caption Styling ===== */
+figure {
+  margin: 1rem 0;
+  text-align: center; /* center image and caption */
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
 
 /* ===== Hub Layout (Mobile First) ===== */
 .hub-container {
