@@ -357,3 +357,38 @@ footer {
     background-color: transparent !important;
   }
 }
+@media (min-width: 901px) {
+  .article .hero-img.portrait {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    background-color: transparent !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== Desktop: Let images break out of text column ===== */
+@media (min-width: 901px) {
+  /* Remove paragraph width limit when it contains an image */
+  .article p:has(img.hero-img) {
+    max-width: none;
+  }
+
+  /* Make sure hero images fill the article width */
+  .article img.hero-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+    background-color: transparent;
+  }
+}
