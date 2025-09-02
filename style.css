@@ -259,25 +259,66 @@ main.content {
   }
 }
 
-/* ===== Animations ===== */
+/* =========================================================
+   ANIMATIONS — DESKTOP + MOBILE
+   ========================================================= */
+
+/* ===== Desktop Arrow-Direction Animations ===== */
 @keyframes slideFromTop {
   from { transform: translate(-50%, -150%); opacity: 0; }
-  to { transform: translate(-50%, -50%); opacity: 1; }
+  to   { transform: translate(-50%, -50%); opacity: 1; }
 }
 @keyframes slideFromRight {
   from { transform: translate(150%, -50%); opacity: 0; }
-  to { transform: translate(50%, -50%); opacity: 1; }
+  to   { transform: translate(50%, -50%); opacity: 1; }
 }
 @keyframes slideFromBottom {
   from { transform: translate(-50%, 150%); opacity: 0; }
-  to { transform: translate(-50%, 50%); opacity: 1; }
+  to   { transform: translate(-50%, 50%); opacity: 1; }
 }
 @keyframes slideFromLeft {
   from { transform: translate(-150%, -50%); opacity: 0; }
-  to { transform: translate(-50%, -50%); opacity: 1; }
+  to   { transform: translate(-50%, -50%); opacity: 1; }
 }
 
-/* Reduced motion support */
+/* Assign animations with stagger for desktop hub */
+@media (min-width: 821px) {
+  .about-us { animation: slideFromTop 0.8s ease-out forwards; animation-delay: 0s; }
+  .editor-approved { animation: slideFromRight 0.8s ease-out forwards; animation-delay: 0.2s; }
+  .ctrl-backspace { animation: slideFromBottom 0.8s ease-out forwards; animation-delay: 0.4s; }
+  .news-not-boring { animation: slideFromLeft 0.8s ease-out forwards; animation-delay: 0.6s; }
+}
+
+/* ===== Scroll-Fade Animation (Mobile + Reusable) ===== */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-fade.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Hero Image Fade-In for Articles ===== */
+.article img {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ===== Footer Slide-Up Reveal ===== */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+footer {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* ===== Reduced Motion Support ===== */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
