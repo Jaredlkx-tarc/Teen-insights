@@ -164,16 +164,16 @@ main.content {
 }
 
 /* Portrait images on desktop */
-@media (aspect-ratio < 1/1) and (min-width: 601px) {
+@media (aspect-ratio < 1/1) and (min-width: 901px) {
   .hero-img {
-    max-width: 800px;     /* match your article column width */
-    width: 100%;          /* still responsive */
-    height: auto;
-    object-fit: contain;  /* no cropping */
+    max-height: 500px;    /* limit vertical size */
+    width: auto;          /* let width adjust naturally */
+    max-width: 100%;      /* don’t overflow container */
+    object-fit: contain;  /* keep full image visible */
     background-color: #fff;
-    margin-left: auto;    /* center horizontally */
-    margin-right: auto;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
