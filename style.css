@@ -263,18 +263,16 @@ main.content {
    ANIMATIONS — DESKTOP + MOBILE
    ========================================================= */
 
-/* ===== Desktop Arrow-Direction Animations ===== */
-@keyframes slideFromTop { … }
-@keyframes slideFromRight { … }
-@keyframes slideFromBottom { … }
-@keyframes slideFromLeft { … }
-
-/* Assign animations with stagger for desktop hub */
-@media (min-width: 821px) {
-  .about-us { … }
-  .editor-approved { … }
-  .ctrl-backspace { … }
-  .news-not-boring { … }
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== Mobile Enhancements ===== */
