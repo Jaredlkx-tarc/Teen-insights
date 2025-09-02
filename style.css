@@ -357,3 +357,13 @@ footer {
     background-color: transparent;
   }
 }
+/* ===== Desktop: Show portrait images in landscape frame ===== */
+@media (min-width: 901px) {
+  .hero-img.portrait {
+    aspect-ratio: 16 / 9;   /* landscape shape */
+    width: 100%;
+    height: auto;
+    object-fit: cover;      /* crop top/bottom to fit */
+    object-position: center;
+  }
+}
