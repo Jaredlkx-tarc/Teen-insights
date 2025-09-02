@@ -151,33 +151,36 @@ main.content {
   margin-right: auto;
 }
 
-/* ===== Default image styling ===== */
-.hero-img,
-.article img {
+/* Base image style */
+.hero-img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  margin: 1rem 0;
   display: block;
+  margin: 1rem 0;
+  border-radius: 10px;
   box-shadow: var(--shadow);
-  object-fit: cover; /* default for most images */
+  object-fit: cover; /* default: fills frame */
 }
 
-/* On desktop, force a landscape frame for portrait images */
-@media (aspect-ratio < 1/1) and (min-width: 901px) {
-  .hero-img {
-    aspect-ratio: 16 / 9; /* force landscape shape */
-    height: auto;
-    object-fit: cover;    /* crop to fit the frame */
-  }
+/* Portrait on mobile: show full, don’t overwhelm */
+@media (max-width: 900px) {
+  .hero-img.portrait {
+    object-fit: contain;   /* no cropping on phones */
+    max-height: 80vh;      /* keep it from taking the whole screen */
+    background: #fff;      /* optional letterbox fill */
+  }
 }
 
-/* Portrait images on mobile */
-@media (aspect-ratio < 1/1) and (max-width: 600px) {
-  .hero-img {
-    max-width: 100%;
-    max-height: 80vh;     /* don’t let it fill the whole screen */
-    object-fit: contain;
+/* Portrait on mobile: show full, don’t overwhelm */
+@media (min-width: 901px) {
+  .hero-img.portrait {
+    aspect-ratio: 16 / 9;   /* landscape frame */
+    object-fit: cover;      /* crop to fit */
+    object-position: center top; /* keep top in view */
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #fff;
   }
 }
