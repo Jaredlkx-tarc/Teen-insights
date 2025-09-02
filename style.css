@@ -347,3 +347,13 @@ footer {
     transition: none !important;
   }
 }
+/* ===== FINAL OVERRIDE: Portrait images on desktop ===== */
+@media (min-width: 901px) {
+  .hero-img.portrait {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    background-color: transparent !important;
+  }
+}
