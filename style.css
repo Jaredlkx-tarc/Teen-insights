@@ -151,7 +151,7 @@ main.content {
   margin-right: auto;
 }
 
-/* Base image style */
+/* Base image style — applies to all images, all screen sizes */
 .hero-img {
   width: 100%;
   height: auto;
@@ -168,20 +168,6 @@ main.content {
     object-fit: contain;   /* no cropping on phones */
     max-height: 80vh;      /* keep it from taking the whole screen */
     background: #fff;      /* optional letterbox fill */
-  }
-}
-
-/* Portrait images on desktop — same as default */
-@media (min-width: 901px) {
-  .hero-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin: 1rem 0;
-    display: block;
-    box-shadow: var(--shadow);
-    object-fit: cover;
-    background-color: transparent;
   }
 }
 figure {
