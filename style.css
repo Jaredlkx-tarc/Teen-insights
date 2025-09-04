@@ -389,3 +389,16 @@ footer {
     font-size: clamp(1rem, 1.8vw, 1.3rem); /* min, preferred, max */
   }
 }
+/* ===== Image Focus Utilities (Desktop Only) ===== */
+@media (min-width: 901px) {
+  .focus-center        { object-position: 50% 50%; }  /* default */
+  .focus-top           { object-position: 50% 0%; }
+  .focus-bottom        { object-position: 50% 100%; }
+  .focus-left          { object-position: 0% 50%; }
+  .focus-right         { object-position: 100% 50%; }
+  .focus-upper-left    { object-position: 0% 0%; }
+  .focus-upper-right   { object-position: 100% 0%; }
+  .focus-lower-left    { object-position: 0% 100%; }
+  .focus-lower-right   { object-position: 100% 100%; }
+  .focus-lower-middle  { object-position: 50% 70%; } /* your special case */
+}
