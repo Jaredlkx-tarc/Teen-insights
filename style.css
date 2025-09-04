@@ -391,7 +391,15 @@ footer {
 }
 /* ===== Image Focus Utilities (Desktop Only) ===== */
 @media (min-width: 901px) {
-  .focus-center        { object-position: 50% 50%; }  /* default */
+  /* Desktop portrait default */
+  .hero-img.portrait {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Focus utilities */
+  .focus-center        { object-position: 50% 50%; }
   .focus-top           { object-position: 50% 0%; }
   .focus-bottom        { object-position: 50% 100%; }
   .focus-left          { object-position: 0% 50%; }
@@ -400,18 +408,7 @@ footer {
   .focus-upper-right   { object-position: 100% 0%; }
   .focus-lower-left    { object-position: 0% 100%; }
   .focus-lower-right   { object-position: 100% 100%; }
-  .focus-lower-middle  { object-position: 50% 70%; } /* your special case */
-}
-/* Desktop portrait default */
-@media (min-width: 901px) {
-  .hero-img.portrait {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  /* Override for special case */
   .hero-img.portrait.focus-lower-middle {
-    object-position: 50% 70% !important; /* force override */
+    object-position: 50% 70%;
   }
 }
