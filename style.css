@@ -381,17 +381,9 @@ footer {
   }
 }
 
-/* Desktop: ≥ 821px */
-@media (min-width: 821px) {
-  .center-circle {
-    width: 200px;
-    height: 200px;
-    font-size: clamp(1rem, 1.8vw, 1.3rem); /* min, preferred, max */
-  }
-}
-/* ===== Image Focus Utilities (Desktop Only) ===== */
+/* ===== Desktop Portrait Defaults + Focus Utilities ===== */
 @media (min-width: 901px) {
-  /* Desktop portrait default */
+  /* Default desktop portrait style */
   .hero-img.portrait {
     aspect-ratio: 16 / 9;
     object-fit: cover;
