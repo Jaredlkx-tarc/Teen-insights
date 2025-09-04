@@ -402,3 +402,16 @@ footer {
   .focus-lower-right   { object-position: 100% 100%; }
   .focus-lower-middle  { object-position: 50% 70%; } /* your special case */
 }
+/* Desktop portrait default */
+@media (min-width: 901px) {
+  .hero-img.portrait {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Override for special case */
+  .hero-img.portrait.focus-lower-middle {
+    object-position: 50% 70% !important; /* force override */
+  }
+}
