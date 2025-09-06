@@ -512,7 +512,7 @@ footer {
   bottom: 0;
   width: 50px;
   height: 3px;
-  background: currentColor; /* matches text colour */
+  background: currentColor;
   border-radius: 2px;
 }
 
@@ -523,86 +523,34 @@ footer {
 }
 
 /* ===== Page-Level Accent Colours ===== */
-
-/* News Not Boring — teal */
 .news-page .sidebar h2,
-.news-page .sidebar .accent-bar {
-  color: #2a9d8f;
-  border-color: #2a9d8f;
-}
-
-/* Lifestyle — coral/orange */
+.news-page .sidebar .accent-bar { color: #2a9d8f; border-color: #2a9d8f; }
 .lifestyle-page .sidebar h2,
-.lifestyle-page .sidebar .accent-bar {
-  color: #ff7f50;
-  border-color: #ff7f50;
-}
-
-/* #EditorApproved — red */
+.lifestyle-page .sidebar .accent-bar { color: #ff7f50; border-color: #ff7f50; }
 .editor-page .sidebar h2,
-.editor-page .sidebar .accent-bar {
-  color: #ff5c5c;
-  border-color: #ff5c5c;
-}
-
-/* About Us — muted grey */
+.editor-page .sidebar .accent-bar { color: #ff5c5c; border-color: #ff5c5c; }
 .about-page .sidebar h2,
-.about-page .sidebar .accent-bar {
-  color: #6c757d;
-  border-color: #6c757d;
-}
-
-/* Ctrl Backspace — blue */
+.about-page .sidebar .accent-bar { color: #6c757d; border-color: #6c757d; }
 .ctrl-backspace-page .sidebar h2,
-.ctrl-backspace-page .sidebar .accent-bar {
-  color: #3a86ff;
-  border-color: #3a86ff;
-}
-
-/* Homepage — default accent */
+.ctrl-backspace-page .sidebar .accent-bar { color: #3a86ff; border-color: #3a86ff; }
 .home-page .sidebar h2,
-.home-page .sidebar .accent-bar {
-  color: var(--accent);
-  border-color: var(--accent);
-}
+.home-page .sidebar .accent-bar { color: var(--accent); border-color: var(--accent); }
 
-/* ===== News Not Boring — Subtopic Accents ===== */
-.news-page #general h2,
-.news-page #general h3,
-.news-page #general .accent-bar {
-  color: #2a9d8f; /* teal */
-  border-color: #2a9d8f;
-}
+/* ===== News Not Boring — Subtopic Accents (inside news.html) ===== */
+.news-page #general h2, .news-page #general h3, .news-page #general .accent-bar { color: #2a9d8f; border-color: #2a9d8f; }
+.news-page #lifestyle h2, .news-page #lifestyle h3, .news-page #lifestyle .accent-bar { color: #ff7f50; border-color: #ff7f50; }
+.news-page #entertainment h2, .news-page #entertainment h3, .news-page #entertainment .accent-bar { color: #9b5de5; border-color: #9b5de5; }
+.news-page #health h2, .news-page #health h3, .news-page #health .accent-bar { color: #06d6a0; border-color: #06d6a0; }
+.news-page #rewrite h2, .news-page #rewrite h3, .news-page #rewrite .accent-bar { color: #ffb703; border-color: #ffb703; }
 
-.news-page #lifestyle h2,
-.news-page #lifestyle h3,
-.news-page #lifestyle .accent-bar {
-  color: #ff7f50; /* coral */
-  border-color: #ff7f50;
-}
+/* ===== News Not Boring — Subtopic Accents (subpages & articles) ===== */
+.news-page.general-subpage h1, .news-page.general-subpage h2, .news-page.general-subpage .accent-bar { color: #2a9d8f; border-color: #2a9d8f; }
+.news-page.lifestyle-subpage h1, .news-page.lifestyle-subpage h2, .news-page.lifestyle-subpage .accent-bar { color: #ff7f50; border-color: #ff7f50; }
+.news-page.entertainment-subpage h1, .news-page.entertainment-subpage h2, .news-page.entertainment-subpage .accent-bar { color: #9b5de5; border-color: #9b5de5; }
+.news-page.health-subpage h1, .news-page.health-subpage h2, .news-page.health-subpage .accent-bar { color: #06d6a0; border-color: #06d6a0; }
+.news-page.rewrite-subpage h1, .news-page.rewrite-subpage h2, .news-page.rewrite-subpage .accent-bar { color: #ffb703; border-color: #ffb703; }
 
-.news-page #entertainment h2,
-.news-page #entertainment h3,
-.news-page #entertainment .accent-bar {
-  color: #9b5de5; /* purple */
-  border-color: #9b5de5;
-}
-
-.news-page #health h2,
-.news-page #health h3,
-.news-page #health .accent-bar {
-  color: #06d6a0; /* green */
-  border-color: #06d6a0;
-}
-
-.news-page #rewrite h2,
-.news-page #rewrite h3,
-.news-page #rewrite .accent-bar {
-  color: #ffb703; /* gold */
-  border-color: #ffb703;
-}
-
-/* ===== Optional standalone accent bar element ===== */
+/* ===== Accent Bar Element ===== */
 .accent-bar {
   height: 4px;
   max-width: 100px;
@@ -610,8 +558,6 @@ footer {
   margin: 0 auto 1.5rem;
   border-radius: 2px;
 }
-
-/* Sidebar-specific accent bar full width */
 .sidebar .accent-bar {
   max-width: none;
   width: 100%;
