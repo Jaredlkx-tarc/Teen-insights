@@ -481,52 +481,87 @@ footer {
   border: 1px solid currentColor;
 }
 
+/* ===== Section & Article Base Style ===== */
+.section, .article {
+  background: var(--panel);
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+/* Subtle alternate tint for even sections */
+.section:nth-of-type(even),
+.article:nth-of-type(even) {
+  background: rgba(0,0,0,0.02);
+}
+
+/* Accent bar under headings */
+.section h2, .article h2,
+.sidebar h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.section h2::after, .article h2::after,
+.sidebar h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: currentColor; /* matches text colour */
+  border-radius: 2px;
+}
+
+/* Hover lift effect */
+.section:hover, .article:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border: 1px solid currentColor;
+}
+
 /* ===== Page-Level Accent Colours ===== */
 
 /* News Not Boring — teal */
-.news-page h1, 
-.news-page h2, 
-.news-page .accent-bar {
+.news-page .sidebar h2,
+.news-page .sidebar .accent-bar {
   color: #2a9d8f;
   border-color: #2a9d8f;
 }
 
 /* Lifestyle — coral/orange */
-.lifestyle-page h1, 
-.lifestyle-page h2, 
-.lifestyle-page .accent-bar {
+.lifestyle-page .sidebar h2,
+.lifestyle-page .sidebar .accent-bar {
   color: #ff7f50;
   border-color: #ff7f50;
 }
 
 /* #EditorApproved — red */
-.editor-page h1, 
-.editor-page h2, 
-.editor-page .accent-bar {
+.editor-page .sidebar h2,
+.editor-page .sidebar .accent-bar {
   color: #ff5c5c;
   border-color: #ff5c5c;
 }
 
 /* About Us — muted grey */
-.about-page h1, 
-.about-page h2, 
-.about-page .accent-bar {
+.about-page .sidebar h2,
+.about-page .sidebar .accent-bar {
   color: #6c757d;
   border-color: #6c757d;
 }
 
 /* Ctrl Backspace — blue */
-.ctrl-backspace-page h1, 
-.ctrl-backspace-page h2, 
-.ctrl-backspace-page .accent-bar {
+.ctrl-backspace-page .sidebar h2,
+.ctrl-backspace-page .sidebar .accent-bar {
   color: #3a86ff;
   border-color: #3a86ff;
 }
 
 /* Homepage — default accent */
-.home-page h1, 
-.home-page h2, 
-.home-page .accent-bar {
+.home-page .sidebar h2,
+.home-page .sidebar .accent-bar {
   color: var(--accent);
   border-color: var(--accent);
 }
@@ -574,4 +609,10 @@ footer {
   background: currentColor;
   margin: 0 auto 1.5rem;
   border-radius: 2px;
+}
+
+/* Sidebar-specific accent bar full width */
+.sidebar .accent-bar {
+  max-width: none;
+  width: 100%;
 }
