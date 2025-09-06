@@ -401,4 +401,6 @@ footer {
   .hero-img.portrait.focus-lower-left    { object-position: 0% 100%; }
   .hero-img.portrait.focus-lower-right   { object-position: 100% 100%; }
   .hero-img.portrait.focus-lower-middle  { object-position: 50% 70%; }
+  hero-img.portrait.focus-upper-middle {object-position: 50% 30%; }
+
 }
