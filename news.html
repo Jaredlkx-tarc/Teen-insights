@@ -6,8 +6,7 @@
   <title>News Not Boring — Teen Insights</title>
   <link rel="stylesheet" href="style.css?v=2025-09-01-2200" />
 </head>
-<body class="news-page"> <!-- for news.html -->
-
+<body class="news-page"> <!-- ✅ page-level class -->
 
 <a href="#main" class="skip-link">Skip to content</a>
 
@@ -18,6 +17,7 @@
 <div class="layout">
   <!-- Sidebar -->
   <nav class="sidebar" aria-label="News categories">
+    <div class="accent-bar"></div> <!-- ✅ page-level accent bar -->
     <h2>News Categories</h2>
     <ul>
       <li><a href="ext-general-news.html">General News</a></li>
@@ -38,6 +38,7 @@
     </nav>
 
     <!-- General News -->
+    <div class="accent-bar"></div>
     <section id="general" class="article">
       <h2><a href="ext-general-news.html">General News</a></h2>
       <h3><a href="general-news-article-1.html">Love Hard: Are Malaysians Seeking True Love Through Dating Apps?</a></h3>
@@ -45,12 +46,12 @@
       <img class="hero-img" src="images/general-placeholder.jpg" alt="Headline related image" />
       <p>
         A new survey reveals how young Malaysians really feel about dating apps—from cautious curiosity to quiet optimism. Are these platforms a gateway to genuine connection, or just digital distractions?
-
         <a href="general-news-article-1.html">Read more…</a>
       </p>
     </section>
 
     <!-- Lifestyle -->
+    <div class="accent-bar"></div>
     <section id="lifestyle" class="article">
       <h2><a href="ext-lifestyle.html">Lifestyle</a></h2>
       <h3><a href="lifestyle-article-1.html">Young Adults Delay Marriage as Finances and Freedom Take Priority</a></h3>
@@ -63,25 +64,23 @@
     </section>
 
     <!-- Entertainment -->
+    <div class="accent-bar"></div>
     <section id="entertainment" class="article">
       <h2><a href="ext-entertainment.html">Entertainment</a></h2>
-      <h3><a href="ext-entertainment.html">Art appears in galleries as individuals define their unique opinions </a></h3>
+      <h3><a href="ext-entertainment.html">Art appears in galleries as individuals define their unique opinions</a></h3>
       <div class="meta">By <strong>ONG SIOK VOON</strong> | Aug 12, 2025</div>
-
-  <img class="hero-img portrait"
-       src="images/entertainment-article-1.jpeg"
-       loading="lazy"
-       alt="Young Malaysians enjoying a casual meetup" />
-
-<p>
+      <img class="hero-img portrait"
+           src="images/entertainment-article-1.jpeg"
+           loading="lazy"
+           alt="Young Malaysians enjoying a casual meetup" />
+      <p>
         Local artist Danielle of Daniellelinart champions hands‑on creativity and art appreciation, even as she laments Malaysia’s lukewarm embrace of the arts. From bold self‑expression to candid visitor critiques, the GMBB gallery reveals how Malaysians — and tourists — are redefining their relationship with culture.
         <a href="entertainment-article-1.html">Read more…</a>
       </p>
-
-  
     </section>
 
     <!-- Health -->
+    <div class="accent-bar"></div>
     <section id="health" class="article">
       <h2><a href="ext-health.html">Health</a></h2>
       <h3><a href="ext-health.html">New teen mental health initiatives in schools</a></h3>
@@ -94,13 +93,14 @@
     </section>
 
     <!-- Re:write -->
+    <div class="accent-bar"></div>
     <section id="rewrite" class="article">
       <h2><a href="ext-rewrite.html">Re:write</a></h2>
       <h3><a href="ext-rewrite.html">Buy Now Pay Later raises Concern over Malaysians Spending Habits</a></h3>
       <div class="meta">Published: Sept 1, 2025</div>
       <img class="hero-img" src="images/rewrite-article-1-2png.png" alt="Creative rewrite related image" />
       <p>
-       Easy credit, hidden costs — millions of young Malaysians are falling into Buy Now Pay Later debt traps, with unregulated schemes raising fresh concerns. 
+        Easy credit, hidden costs — millions of young Malaysians are falling into Buy Now Pay Later debt traps, with unregulated schemes raising fresh concerns. 
         <a href="rewrite-article-1.html">Read more…</a>
       </p>
     </section>
