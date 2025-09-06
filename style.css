@@ -562,3 +562,62 @@ footer {
   max-width: none;
   width: 100%;
 }
+/* ===== Headline & Read More link colours ===== */
+
+/* Inside news.html (section IDs) */
+.news-page #general h2 a,
+.news-page #general a.read-more {
+  color: #2a9d8f;
+}
+
+.news-page #lifestyle h2 a,
+.news-page #lifestyle a.read-more {
+  color: #ff7f50;
+}
+
+.news-page #entertainment h2 a,
+.news-page #entertainment a.read-more {
+  color: #9b5de5;
+}
+
+.news-page #health h2 a,
+.news-page #health a.read-more {
+  color: #06d6a0;
+}
+
+.news-page #rewrite h2 a,
+.news-page #rewrite a.read-more {
+  color: #ffb703;
+}
+
+/* For subpages & articles (Option 1 classes) */
+.news-page.general-subpage h2 a,
+.news-page.general-subpage a.read-more {
+  color: #2a9d8f;
+}
+
+.news-page.lifestyle-subpage h2 a,
+.news-page.lifestyle-subpage a.read-more {
+  color: #ff7f50;
+}
+
+.news-page.entertainment-subpage h2 a,
+.news-page.entertainment-subpage a.read-more {
+  color: #9b5de5;
+}
+
+.news-page.health-subpage h2 a,
+.news-page.health-subpage a.read-more {
+  color: #06d6a0;
+}
+
+.news-page.rewrite-subpage h2 a,
+.news-page.rewrite-subpage a.read-more {
+  color: #ffb703;
+}
+
+/* Optional: hover effect for all */
+.news-page h2 a:hover,
+.news-page a.read-more:hover {
+  text-decoration: underline;
+}
