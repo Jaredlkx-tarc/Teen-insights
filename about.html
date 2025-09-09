@@ -14,15 +14,18 @@
 </header>
 
 <div class="layout">
+  <button class="sidebar-toggle" aria-label="Toggle menu">☰ Menu</button>
+
   <nav class="sidebar">
-    <h2>Site Sections</h2>
+    <h2>Site Navigation</h2>
     <ul>
-      <li><a href="news.html">News Not Boring</a></li>
-    
-      <li><a href="ctrl-backspace.html">Ctrl Backspace</a></li>
-      <li><a href="editor.html">#EditorApproved</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="about.html" class="active">ℹ About Us</a></li>
+      <li><a href="editor-approval.html">✅ Editor Approval</a></li>
+      <li><a href="ctrl-backspace.html">⌨ Ctrl+Backspace Tips</a></li>
     </ul>
   </nav>
+
 
   <main class="content">
     <article class="article">
@@ -53,6 +56,15 @@
 <footer>
   &copy; 2025 Teen Insights
 </footer>
+<script>
+  const toggleBtn = document.querySelector('.sidebar-toggle');
+  const sidebar = document.querySelector('nav.sidebar');
 
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  }
+</script>
 </body>
 </html>
