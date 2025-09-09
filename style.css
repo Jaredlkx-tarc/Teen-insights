@@ -703,19 +703,6 @@ footer {
 .news-page.health-subpage .sidebar a.active { background-color: #06d6a0; color: #fff; }
 .news-page.rewrite-subpage .sidebar a.active { background-color: #ffb703; color: #fff; }
 
-/* ===== DESKTOP ===== */
-@media (min-width: 769px) {
-  .sidebar {
-    position: sticky;
-    top: 1rem;
-    align-self: flex-start;
-    display: block; /* always visible on desktop */
-  }
-  .sidebar-toggle {
-    display: none; /* hide toggle button on desktop */
-  }
-}
-
 /* ===== MOBILE TOGGLE BUTTON ===== */
 .sidebar-toggle {
   display: block;
@@ -737,5 +724,18 @@ footer {
   nav.sidebar.open {
     display: block;
     margin-bottom: 1rem;
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 769px) {
+  .sidebar {
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+    display: block !important; /* always visible on desktop */
+  }
+  .sidebar-toggle {
+    display: none; /* hide toggle button on desktop */
   }
 }
