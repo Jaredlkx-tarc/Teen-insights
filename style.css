@@ -700,10 +700,7 @@ footer {
 .news-page.health-subpage .sidebar a.active { background-color: #06d6a0; color: #fff; }
 .news-page.rewrite-subpage .sidebar a.active { background-color: #ffb703; color: #fff; }
 
-/* ===== STATIC PAGES ===== */
-.static-page.about-subpage .sidebar a.active { background-color: #0077b6; color: #fff; }
-.static-page.editor-subpage .sidebar a.active { background-color: #8d99ae; color: #fff; }
-.static-page.tips-subpage .sidebar a.active { background-color: #f77f00; color: #fff; }
+
 
     /* ===== MOBILE TOGGLE BUTTON ===== */
     .sidebar-toggle {
