@@ -663,79 +663,77 @@ footer {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
-/* ===== SIDEBAR BASE ===== */
-.sidebar {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: relative; /* ensures z-index works */
-  z-index: 10; /* keeps links clickable above other layers */
-}
 
-.sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    /* ===== SIDEBAR BASE ===== */
+    .sidebar {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+    .sidebar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .sidebar li {
+      margin-bottom: 0.5rem;
+    }
+    .sidebar a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      color: inherit;
+    }
+    .sidebar a:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
 
-.sidebar li {
-  margin-bottom: 0.5rem;
-}
+    /* ===== ACTIVE LINK ACCENT ===== */
+    .news-page.general-subpage .sidebar a.active { background-color: #2a9d8f; color: #fff; }
+    .news-page.lifestyle-subpage .sidebar a.active { background-color: #ff7f50; color: #fff; }
+    .news-page.entertainment-subpage .sidebar a.active { background-color: #9b5de5; color: #fff; }
+    .news-page.health-subpage .sidebar a.active { background-color: #06d6a0; color: #fff; }
+    .news-page.rewrite-subpage .sidebar a.active { background-color: #ffb703; color: #fff; }
 
-.sidebar a {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  color: inherit;
-}
+    /* ===== MOBILE TOGGLE BUTTON ===== */
+    .sidebar-toggle {
+      display: block;
+      background: var(--accent-color, #333);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-.sidebar a:hover {
-  background-color: rgba(0,0,0,0.05);
-}
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav.sidebar {
+        display: none;
+      }
+      nav.sidebar.open {
+        display: block !important;
+        margin-bottom: 1rem;
+      }
+    }
 
-/* ===== ACTIVE LINK ACCENT ===== */
-.news-page.general-subpage .sidebar a.active { background-color: #2a9d8f; color: #fff; }
-.news-page.lifestyle-subpage .sidebar a.active { background-color: #ff7f50; color: #fff; }
-.news-page.entertainment-subpage .sidebar a.active { background-color: #9b5de5; color: #fff; }
-.news-page.health-subpage .sidebar a.active { background-color: #06d6a0; color: #fff; }
-.news-page.rewrite-subpage .sidebar a.active { background-color: #ffb703; color: #fff; }
-
-/* ===== MOBILE TOGGLE BUTTON ===== */
-.sidebar-toggle {
-  display: block;
-  background: var(--accent-color, #333);
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* ===== MOBILE SIDEBAR BEHAVIOUR ===== */
-@media (max-width: 768px) {
-  nav.sidebar {
-    display: none; /* hidden until opened */
-  }
-  nav.sidebar.open {
-    display: block;
-    margin-bottom: 1rem;
-  }
-}
-
-/* ===== DESKTOP ===== */
-@media (min-width: 769px) {
-  .sidebar {
-    position: sticky;
-    top: 1rem;
-    align-self: flex-start;
-    display: block !important; /* always visible on desktop */
-  }
-  .sidebar-toggle {
-    display: none; /* hide toggle button on desktop */
-  }
-}
+    /* ===== DESKTOP ===== */
+    @media (min-width: 769px) {
+      .sidebar {
+        position: sticky;
+        top: 1rem;
+        align-self: flex-start;
+        display: block !important;
+      }
+      .sidebar-toggle {
+        display: none;
+      }
+    }
+ 
