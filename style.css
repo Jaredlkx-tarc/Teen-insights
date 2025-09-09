@@ -731,10 +731,10 @@ footer {
 
 /* ===== MOBILE SIDEBAR BEHAVIOUR ===== */
 @media (max-width: 768px) {
-  .sidebar {
+  nav.sidebar {
     display: none; /* hidden until opened */
   }
-  .sidebar.open {
+  nav.sidebar.open {
     display: block;
     margin-bottom: 1rem;
   }
