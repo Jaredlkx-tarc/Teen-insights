@@ -12,15 +12,18 @@
   <h1><a href="index.html">Teen Insights</a></h1>
 </header>
 
-<div class="layout">
-  <nav class="sidebar">
-    <h2>Re:write</h2>
+ <nav class="sidebar">
+    <h2>News Categories</h2>
     <ul>
-      <li><a href="news.html">News Not Boring</a></li>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="ext-general-news.html" >📰 General News</a></li>
+      <li><a href="ext-lifestyle.html">🌿 Lifestyle</a></li>
+      <li><a href="ext-entertainment.html">🎬 Entertainment</a></li>
+      <li><a href="ext-health.html">💊 Health</a></li>
+      <li><a href="ext-rewrite.html"class="active">✍ Re:write</a></li>
+      <li><a href="news.html">📚 News Not Boring</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
     </ul>
   </nav>
- 
 
   <main class="content">
      <!-- Breadcrumbs -->
@@ -75,6 +78,15 @@
 <footer>
   &copy; 2025 Teen Insights
 </footer>
+<script>
+  const toggleBtn = document.querySelector('.sidebar-toggle');
+  const sidebar = document.querySelector('nav.sidebar');
 
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  }
+</script>
 </body>
 </html>
