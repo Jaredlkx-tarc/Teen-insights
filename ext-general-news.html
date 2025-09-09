@@ -164,6 +164,16 @@
 <footer>
   &copy; 2025 Teen Insights
 </footer>
-<script src="sidebar.js"></script>
+<script>
+  const toggleBtn = document.querySelector('.sidebar-toggle');
+  const sidebar = document.querySelector('nav.sidebar');
+
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  }
+</script>
+
 </body>
 </html>
