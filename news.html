@@ -7,40 +7,19 @@
   <link rel="stylesheet" href="style.css?v=2025-09-01-2200" />
 </head>
 <body class="news-page"> <!-- ✅ page-level class -->
-<!-- Search Panel -->
-<aside class="side-panel search-panel" id="searchPanel">
-  <button class="close-btn" aria-label="Close search">✖</button>
-  <h2>Search Articles</h2>
-  <form id="searchForm">
-    <input type="text" name="q" placeholder="Search…" required />
-    <button type="submit">Search</button>
-  </form>
-  <div id="searchResults"></div>
-</aside>
 
-<!-- Login Panel -->
-<aside class="side-panel login-panel" id="loginPanel">
-  <button class="close-btn" aria-label="Close login">✖</button>
-  <h2>Member Login</h2>
-  <form id="loginForm">
-    <input type="email" placeholder="Email" required />
-    <input type="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
-  <p class="signup-link">
-    <a href="#" id="signupLink">Create an account</a>
-  </p>
-</aside>
 
 
 <header>
   <h1><a href="index.html">Teen Insights</a></h1>
+  <!-- Search & Login Icons -->
+  <div class="header-icons">
+    <button class="icon-btn" id="searchToggle" aria-label="Open search">🔍</button>
+    <button class="icon-btn" id="loginToggle" aria-label="Open login">👤</button>
+  </div>
+
 </header>
-  
-<div class="header-icons">
-  <button class="icon-btn" id="searchToggle" aria-label="Open search">🔍</button>
-  <button class="icon-btn" id="loginToggle" aria-label="Open login">👤</button>
-</div>
+
 
 <div class="layout">
   <!-- Sidebar -->
@@ -175,6 +154,11 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
         results.length
           ? results.map(r => <p><a href="${r.url}">${r.title}</a></p>).join('')
           : '<p>No results found.</p>';
+    })
+    .catch(err => {
+      console.error('Error loading articles.json', err);
+      document.getElementById('searchResults').innerHTML =
+        '<p>There was an error loading search results.</p>';
     });
 });
 
