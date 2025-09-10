@@ -848,12 +848,15 @@ footer {
   line-height: 1.5;
 }
 
-.related li a {
-  display: inline-block;
-  margin-left: 0.25rem;
-  font-weight: 500;
+.related a {
   text-decoration: none;
-  color: var(--accent-color, #E64298);
+  font-weight: 500;
+  color: var(--accent-color, #E64298); /* matches your section accent color */
+  transition: color 0.2s ease;
+}
+
+.related a:hover {
+  text-decoration: underline;
 }
 
 .related li a:hover {
