@@ -794,36 +794,6 @@ footer {
 
 /* --- Related / Read More section --- */
 .related {
-  border-top: 1px solid #eee;
-  margin-top: 24px;
-  padding-top: 16px;
-}
-
-.related h3 {
-  margin: 0 0 12px;
-  font-size: 1.05rem;
-}
-
-.related ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.related li + li {
-  margin-top: 8px;
-}
-
-.related a {
-  text-decoration: none;
-  color: inherit; /* keeps link color consistent with your theme */
-}
-
-.related a:hover {
-  text-decoration: underline;
-}
-/* Related section styled like inline teasers */
-.related {
   border-top: 3px solid var(--accent-color, #E64298);
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -851,14 +821,10 @@ footer {
 .related a {
   text-decoration: none;
   font-weight: 500;
-  color: var(--accent-color, #E64298); /* matches your section accent color */
+  color: var(--accent-color, #E64298); /* always match section accent */
   transition: color 0.2s ease;
 }
 
 .related a:hover {
-  text-decoration: underline;
-}
-
-.related li a:hover {
   text-decoration: underline;
 }
