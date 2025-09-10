@@ -945,24 +945,24 @@ footer {
 
 .video-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* default: 2 columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
-/* Portrait videos keep 9:16 ratio */
+/* Portrait videos – slightly shorter than true 9:16 */
 .video-item.portrait {
   position: relative;
-  padding-bottom: 177.78%; /* 9:16 */
+  padding-bottom: 150%; /* was 177.78% */
   background: #000;
   border-radius: 8px;
   overflow: hidden;
 }
 
-/* Landscape videos span full row */
+/* Landscape videos – still full width, but not too tall */
 .video-item.landscape {
-  grid-column: 1 / -1; /* take both columns */
+  grid-column: 1 / -1;
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 50%; /* was 56.25% */
   background: #000;
   border-radius: 8px;
   overflow: hidden;
