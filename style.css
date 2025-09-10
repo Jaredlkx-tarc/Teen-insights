@@ -787,3 +787,6 @@ footer {
 .signup-link { margin-top: 0.5rem; font-size: 0.85rem; }
 .signup-link a { color: var(--accent-color, #3a86ff); text-decoration: none; }
 .signup-link a:hover { text-decoration: underline; }
+@media (max-width: 500px) {
+  .side-panel { width: 100%; }
+}
