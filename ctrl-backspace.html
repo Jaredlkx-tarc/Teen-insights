@@ -7,17 +7,18 @@
   <link rel="stylesheet" href="style.css?v=2025-09-02-2146" />
 </head> 
 
-<body class="static-page ctrl-backspace subpage"> <!-- Page-level classes -->
+<!-- ✅ Body class matches CSS selector -->
+<body class="ctrl-backspace-page static-page subpage">
 
 <header>
   <h1><a href="index.html">Teen Insights</a></h1>
 </header>
 
 <div class="layout">
-  <!-- Mobile toggle button -->
+  <!-- ✅ Mobile toggle button in correct place -->
   <button class="sidebar-toggle" aria-label="Toggle menu">☰ Menu</button>
 
-  <!-- Sidebar -->
+  <!-- ✅ Sidebar structure matches CSS -->
   <nav class="sidebar" aria-label="Site navigation">
     <div class="accent-bar"></div> <!-- Accent bar for page colour -->
 
@@ -31,7 +32,7 @@
     </ul>
   </nav>
 
-  <!-- Main content -->
+  <!-- ✅ Main content wrapper -->
   <main class="content">
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -53,6 +54,7 @@
   &copy; 2025 Teen Insights
 </footer>
 
+<!-- ✅ JS toggle script unchanged -->
 <script>
   const toggleBtn = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('nav.sidebar');
