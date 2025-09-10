@@ -189,18 +189,46 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     });
 });
 
-// Fake login
+// Fake login with realistic feedback
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  alert('Login successful (demo only)');
-  loginPanel.classList.remove('open');
+  const email = this.querySelector('input[type="email"]').value;
+  const password = this.querySelector('input[type="password"]').value;
+
+  // Simulate server processing
+  document.getElementById('loginForm').innerHTML = '<p>Logging in...</p>';
+
+  setTimeout(() => {
+    document.getElementById('loginForm').innerHTML = <p style="color:green;">✅ Welcome back, ${email}!</p>;
+    setTimeout(() => {
+      loginPanel.classList.remove('open');
+      // Reset form for next time
+      document.getElementById('loginForm').innerHTML = `
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      `;
+    }, 1500);
+  }, 1000);
 });
 
-// Fake sign-up
+// Fake sign-up with realistic feedback
 document.getElementById('signupLink').addEventListener('click', function(e) {
   e.preventDefault();
-  alert('Sign-up form submitted (demo only)');
-  loginPanel.classList.remove('open');
+  const name = prompt("Enter your name:");
+  const email = prompt("Enter your email:");
+  const password = prompt("Create a password:");
+
+  if (!name || !email || !password) {
+    alert("Please fill in all fields to create an account.");
+    return;
+  }
+
+  // Simulate server processing
+  alert("Creating your account...");
+  setTimeout(() => {
+    alert(✅ Account created successfully!\nWelcome, ${name}! You can now log in.);
+  }, 800);
 });
 </script>
 </body>
