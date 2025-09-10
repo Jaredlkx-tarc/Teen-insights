@@ -179,7 +179,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
       const results = data.filter(a => a.title.toLowerCase().includes(query));
       document.getElementById('searchResults').innerHTML =
         results.length
-          ? results.map(r => <p><a href="${r.url}">${r.title}</a></p>).join('')
+          ? results.map(r => '<p><a href="${r.url}">${r.title}</a></p>').join('')
           : '<p>No results found.</p>';
     })
     .catch(err => {
