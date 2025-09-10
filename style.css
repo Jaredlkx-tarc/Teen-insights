@@ -945,16 +945,8 @@ footer {
 
 .video-gallery {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* always one per row */
   gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-/* 2 columns on tablets/desktops */
-@media (min-width: 768px) {
-  .video-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .video-item {
@@ -962,17 +954,17 @@ footer {
   width: 100%;
   overflow: hidden;
   border-radius: 8px;
-  background: #000; /* avoids white gaps for portrait videos */
+  background: #000;
 }
 
-/* Default: 16:9 landscape ratio */
+/* Landscape (YouTube) */
 .video-item.landscape {
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%; /* 16:9 ratio */
 }
 
-/* Portrait videos (TikTok style) */
+/* Portrait (TikTok style) */
 .video-item.portrait {
-  padding-bottom: 177.78%; /* 9:16 */
+  padding-bottom: 177.78%; /* 9:16 ratio */
 }
 
 .video-item iframe {
