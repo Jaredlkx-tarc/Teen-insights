@@ -738,3 +738,52 @@ footer {
         display: none;
       }
     }
+
+.header-icons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.side-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 1rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+.side-panel h2 { margin-top: 0; }
+.side-panel .close-btn {
+  background: none;
+  color: #333;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.search-panel { left: 0; }
+.search-panel.open { transform: translateX(0); }
+.login-panel { right: 0; left: auto; transform: translateX(100%); }
+.login-panel.open { transform: translateX(0); }
+#searchResults p { margin: 0.5rem 0; }
+#searchResults a {
+  color: var(--accent-color, #3a86ff);
+  text-decoration: none;
+}
+#searchResults a:hover { text-decoration: underline; }
+.signup-link { margin-top: 0.5rem; font-size: 0.85rem; }
+.signup-link a { color: var(--accent-color, #3a86ff); text-decoration: none; }
+.signup-link a:hover { text-decoration: underline; }
