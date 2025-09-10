@@ -137,7 +137,7 @@
   <button class="close-btn" aria-label="Close login">✖</button>
   <h2>Member Login</h2>
   <form id="loginForm">
-    <input type="email" placeholder="Email" required />
+    <input type="text" placeholder="Username" required />
     <input type="password" placeholder="Password" required />
     <button type="submit">Login</button>
   </form>
@@ -145,6 +145,7 @@
     <a href="#" id="signupLink">Create an account</a>
   </p>
 </aside>
+
 
   
 <script>
@@ -189,6 +190,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     });
 });
 
+
 // --- Cookie helpers ---
 function setCookie(name, value, days) {
   const date = new Date();
@@ -227,18 +229,18 @@ if (savedUser) {
   });
 }
 
-// --- Fake login ---
+// --- Fake login with username ---
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const email = this.querySelector('input[type="email"]').value;
+  const username = this.querySelector('input[type="text"]').value;
   const password = this.querySelector('input[type="password"]').value;
 
   document.getElementById('loginForm').innerHTML = '<p>Logging in...</p>';
 
   setTimeout(() => {
-    setCookie('loggedInUser', email, 7); // store for 7 days
+    setCookie('loggedInUser', username, 7); // store for 7 days
     document.getElementById('loginForm').innerHTML = `
-      <p style="color:green;">✅ Welcome back, ${email}!</p>
+      <p style="color:green;">✅ Welcome back, ${username}!</p>
       <button id="logoutBtn">Logout</button>
     `;
     document.getElementById('logoutBtn').addEventListener('click', () => {
@@ -251,23 +253,32 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
   }, 1000);
 });
 
-// --- Fake sign-up ---
+// --- Fake sign-up (no "Creating your account..." popup) ---
 document.getElementById('signupLink').addEventListener('click', function(e) {
   e.preventDefault();
-  const name = prompt("Enter your name:");
-  const email = prompt("Enter your email:");
+  const username = prompt("Choose a username:");
   const password = prompt("Create a password:");
 
-  if (!name || !email || !password) {
+  if (!username || !password) {
     alert("Please fill in all fields to create an account.");
     return;
   }
 
-  alert("Creating your account...");
+  // Directly set cookie and welcome user
+  setCookie('loggedInUser', username, 7);
+  document.getElementById('loginForm').innerHTML = `
+    <p style="color:green;">✅ Account created successfully! Welcome, ${username}!</p>
+    <button id="logoutBtn">Logout</button>
+  `;
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    deleteCookie('loggedInUser');
+    location.reload();
+  });
   setTimeout(() => {
-    alert(`✅ Account created successfully!\nWelcome, ${name}! You can now log in.`);
-  }, 800);
+    loginPanel.classList.remove('open');
+  }, 1000);
 });
-</script>  
+</script>
+
 </body>
 </html>
