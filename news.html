@@ -189,30 +189,69 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     });
 });
 
-// Fake login with realistic feedback
+// --- Cookie helpers ---
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days*24*60*60*1000));
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = `${name}=${value};${expires};path=/`;
+}
+
+function getCookie(name) {
+  const cname = name + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i].trim();
+    if (c.indexOf(cname) === 0) {
+      return c.substring(cname.length, c.length);
+    }
+  }
+  return "";
+}
+
+function deleteCookie(name) {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
+
+// --- On page load: check cookie ---
+const savedUser = getCookie('loggedInUser');
+if (savedUser) {
+  document.getElementById('loginForm').innerHTML = `
+    <p style="color:green;">✅ Welcome back, ${savedUser}!</p>
+    <button id="logoutBtn">Logout</button>
+  `;
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    deleteCookie('loggedInUser');
+    location.reload();
+  });
+}
+
+// --- Fake login ---
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const email = this.querySelector('input[type="email"]').value;
   const password = this.querySelector('input[type="password"]').value;
 
-  // Simulate server processing
   document.getElementById('loginForm').innerHTML = '<p>Logging in...</p>';
 
   setTimeout(() => {
-    document.getElementById('loginForm').innerHTML = `<p style="color:green;">✅ Welcome back, ${email}!</p>`;
+    setCookie('loggedInUser', email, 7); // store for 7 days
+    document.getElementById('loginForm').innerHTML = `
+      <p style="color:green;">✅ Welcome back, ${email}!</p>
+      <button id="logoutBtn">Logout</button>
+    `;
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      deleteCookie('loggedInUser');
+      location.reload();
+    });
     setTimeout(() => {
       loginPanel.classList.remove('open');
-      // Reset form for next time
-      document.getElementById('loginForm').innerHTML = `
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-      `;
-    }, 1500);
+    }, 1000);
   }, 1000);
 });
 
-// Fake sign-up with realistic feedback
+// --- Fake sign-up ---
 document.getElementById('signupLink').addEventListener('click', function(e) {
   e.preventDefault();
   const name = prompt("Enter your name:");
@@ -224,12 +263,11 @@ document.getElementById('signupLink').addEventListener('click', function(e) {
     return;
   }
 
-  // Simulate server processing
   alert("Creating your account...");
   setTimeout(() => {
     alert(`✅ Account created successfully!\nWelcome, ${name}! You can now log in.`);
   }, 800);
 });
-</script>
+</script>  
 </body>
 </html>
