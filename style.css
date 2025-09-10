@@ -739,19 +739,25 @@ footer {
       }
     }
 
+/* --- Header Icons: Search (left) + Login (right) --- */
 .header-icons {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;               /* stretch from left */
+  right: 1rem;              /* to right */
   display: flex;
-  gap: 0.5rem;
+  justify-content: space-between; /* pushes first child left, last child right */
+  align-items: center;
 }
+
 .icon-btn {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+/* --- Side Panels --- */
 .side-panel {
   position: fixed;
   top: 0;
@@ -764,7 +770,11 @@ footer {
   transition: transform 0.3s ease;
   z-index: 1000;
 }
-.side-panel h2 { margin-top: 0; }
+
+.side-panel h2 {
+  margin-top: 0;
+}
+
 .side-panel .close-btn {
   background: none;
   color: #333;
@@ -774,23 +784,56 @@ footer {
   right: 1rem;
   cursor: pointer;
 }
-.search-panel { left: 0; }
-.search-panel.open { transform: translateX(0); }
-.login-panel { right: 0; left: auto; transform: translateX(100%); }
-.login-panel.open { transform: translateX(0); }
-#searchResults p { margin: 0.5rem 0; }
+
+/* Search panel slides in from left */
+.search-panel {
+  left: 0;
+}
+.search-panel.open {
+  transform: translateX(0);
+}
+
+/* Login panel slides in from right */
+.login-panel {
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+}
+.login-panel.open {
+  transform: translateX(0);
+}
+
+/* Search results styling */
+#searchResults p {
+  margin: 0.5rem 0;
+}
 #searchResults a {
   color: var(--accent-color, #3a86ff);
   text-decoration: none;
 }
-#searchResults a:hover { text-decoration: underline; }
-.signup-link { margin-top: 0.5rem; font-size: 0.85rem; }
-.signup-link a { color: var(--accent-color, #3a86ff); text-decoration: none; }
-.signup-link a:hover { text-decoration: underline; }
-@media (max-width: 500px) {
-  .side-panel { width: 100%; }
+#searchResults a:hover {
+  text-decoration: underline;
 }
 
+/* Signup link styling */
+.signup-link {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+.signup-link a {
+  color: var(--accent-color, #3a86ff);
+  text-decoration: none;
+}
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile: panels take full width */
+@media (max-width: 500px) {
+  .side-panel {
+    width: 100%;
+  }
+}
 
 /* --- Related / Read More section --- */
 .related {
