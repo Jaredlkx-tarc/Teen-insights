@@ -3,37 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Page</title>
+  <title>Ctrl+Backspace — Teen Insights</title>
   <link rel="stylesheet" href="style.css?v=2025-09-02-2146" />
 </head> 
-<body class="static-page ctrl-backspace subpage"> <!-- for ctrl-backspace.html -->
 
+<body class="static-page ctrl-backspace subpage"> <!-- Page-level classes -->
 
 <header>
   <h1><a href="index.html">Teen Insights</a></h1>
 </header>
 
 <div class="layout">
+  <!-- Mobile toggle button -->
   <button class="sidebar-toggle" aria-label="Toggle menu">☰ Menu</button>
 
-  <nav class="sidebar">
+  <!-- Sidebar -->
+  <nav class="sidebar" aria-label="Site navigation">
+    <div class="accent-bar"></div>
+
     <h2>Site Navigation</h2>
     <ul>
       <li><a href="index.html">🏠 Home</a></li>
-      <li><a href="about.html" >ℹ About Us</a></li>
+      <li><a href="about.html">ℹ About Us</a></li>
       <li><a href="editor.html">✅ #Editor Approved</a></li>
-      <li><a href="ctrl-backspace.html"class="active">⌨ Ctrl+Backspace </a></li>
-    <li><a href="news.html">📚 News Not Boring</a></li>
+      <li><a href="ctrl-backspace.html" class="active">⌨ Ctrl+Backspace</a></li>
+      <li><a href="news.html">📚 News Not Boring</a></li>
     </ul>
   </nav>
+
+  <!-- Main content -->
   <main class="content">
-     <!-- Auto-generated breadcrumb container -->
-    <div class="breadcrumbs" id="breadcrumbs"></div>
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> › Ctrl+Backspace
+    </nav>
 
     <article class="article">
       <h2>Behind the Scenes</h2>
       <div class="meta">Video & Photo Workflow</div>
-      <p>Explore how our team captures stories visually — from lighting setups to editing timelines. Ctrl Backspace is where we rewind and reveal the process.</p>
+      <p>
+        Explore how our team captures stories visually — from lighting setups to editing timelines. 
+        Ctrl+Backspace is where we rewind and reveal the process.
+      </p>
     </article>
   </main>
 </div>
@@ -41,16 +52,16 @@
 <footer>
   &copy; 2025 Teen Insights
 </footer>
-  
+
 <script>
   const toggleBtn = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('nav.sidebar');
-
   if (toggleBtn && sidebar) {
     toggleBtn.addEventListener('click', () => {
       sidebar.classList.toggle('open');
     });
   }
 </script>
+
 </body>
 </html>
