@@ -822,3 +822,40 @@ footer {
 .related a:hover {
   text-decoration: underline;
 }
+/* Related section styled like inline teasers */
+.related {
+  border-top: 3px solid var(--accent-color, #E64298);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.related h3 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+  color: var(--accent-color, #E64298);
+  font-weight: 600;
+}
+
+.related ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.related li a {
+  display: inline-block;
+  margin-left: 0.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--accent-color, #E64298);
+}
+
+.related li a:hover {
+  text-decoration: underline;
+}
