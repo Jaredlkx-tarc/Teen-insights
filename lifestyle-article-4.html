@@ -94,6 +94,7 @@ However, some disagreed. "No, because of working and studying," one wrote, while
 </p>      
       
 <!-- Optional: next/previous links or back link -->
+       <section id="related" class="related"></section>   
     <nav class="post-nav">
       <a href="ext-lifestyle.html" class="read-more">← Back to Lifestyle</a>
     </nav>
@@ -101,5 +102,77 @@ However, some disagreed. "No, because of working and studying," one wrote, while
 </div>
 
 <footer>© 2025 Teen Insights</footer>
+  <script>
+// --- Config: your JSON filename ---
+const ARTICLES_JSON = 'articles.json';
+
+// --- Helpers ---
+function getBaseName(pathname) {
+  const file = pathname.split('/').pop();
+  return file.replace(/\.html?$/i, '');
+}
+
+function getSectionSlugAndIndex(base) {
+  const m = base.match(/^(.*)-article-(\d+)$/i);
+  if (!m) return { section: null, index: null };
+  return { section: m[1].toLowerCase(), index: parseInt(m[2], 10) };
+}
+
+function sectionLabel(slug) {
+  const map = {
+    'lifestyle': 'Lifestyle',
+    'general-news': 'General News',
+    'entertainment': 'Entertainment',
+    'rewrite': 'Rewrite'
+  };
+  return map[slug] || (slug ? slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : 'More stories');
+}
+
+function articleIndexFromUrl(url) {
+  const m = url.match(/-article-(\d+)\.html?$/i);
+  return m ? parseInt(m[1], 10) : 0;
+}
+
+// --- Build related list ---
+(function buildRelated() {
+  const relatedEl = document.getElementById('related');
+  if (!relatedEl) return;
+
+  const base = getBaseName(location.pathname);
+  const { section } = getSectionSlugAndIndex(base);
+  if (!section) return;
+
+  fetch(ARTICLES_JSON)
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(items => {
+      if (!Array.isArray(items)) throw new Error('Invalid JSON format');
+
+      const sameSection = items.filter(it =>
+        typeof it.url === 'string' &&
+        it.url.toLowerCase().startsWith(section + '-article-') &&
+        !it.url.toLowerCase().includes(base.toLowerCase() + '.html')
+      );
+
+      sameSection.sort((a, b) => articleIndexFromUrl(a.url) - articleIndexFromUrl(b.url));
+      const picks = sameSection.slice(0, 5);
+
+      if (!picks.length) return;
+
+      relatedEl.innerHTML = `
+        <h3>Read more in ${sectionLabel(section)}</h3>
+        <ul>
+         ${picks.map(p => `<li><a href="${p.url}" class="read-more">${p.title}</a></li>`).join('')}
+        </ul>
+      `;
+    })
+    .catch(err => {
+      // Uncomment for debugging:
+      // console.error('Related builder error:', err);
+    });
+})();
+</script>  
 </body>
 </html>
