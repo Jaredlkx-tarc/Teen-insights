@@ -870,3 +870,36 @@ footer {
 .related a:hover {
   text-decoration: underline;
 }
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.photo-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.photo-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: captions under each image */
+.photo-gallery figure {
+  margin: 0;
+}
+
+.photo-gallery figcaption {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.25rem;
+  text-align: center;
+}
