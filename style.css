@@ -794,23 +794,22 @@ footer {
 
 /* --- Related / Read More section --- */
 .related {
-  border-top: 3px solid var(--accent-color, #E64298);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  border-top: 3px solid currentColor; /* border matches current text/link colour */
+  margin: 2rem 0;
   padding-top: 1rem;
 }
 
 .related h3 {
-  font-size: 1.2rem;
   margin: 0 0 1rem;
-  color: var(--accent-color, #E64298);
+  font-size: 1.2rem;
   font-weight: 600;
+  color: currentColor; /* heading matches section colour */
 }
 
 .related ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .related li {
@@ -819,10 +818,10 @@ footer {
 }
 
 .related a {
-  text-decoration: none;
   font-weight: 500;
-  color: var(--accent-color, #E64298); /* always match section accent */
+  text-decoration: none;
   transition: color 0.2s ease;
+  /* no hard‑coded colour here — inherits from your .read-more rules */
 }
 
 .related a:hover {
