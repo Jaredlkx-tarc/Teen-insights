@@ -199,7 +199,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
   document.getElementById('loginForm').innerHTML = '<p>Logging in...</p>';
 
   setTimeout(() => {
-    document.getElementById('loginForm').innerHTML = <p style="color:green;">✅ Welcome back, ${email}!</p>;
+    document.getElementById('loginForm').innerHTML = `<p style="color:green;">✅ Welcome back, ${email}!</p>`;
     setTimeout(() => {
       loginPanel.classList.remove('open');
       // Reset form for next time
@@ -227,7 +227,7 @@ document.getElementById('signupLink').addEventListener('click', function(e) {
   // Simulate server processing
   alert("Creating your account...");
   setTimeout(() => {
-    alert(✅ Account created successfully!\nWelcome, ${name}! You can now log in.);
+    alert(`✅ Account created successfully!\nWelcome, ${name}! You can now log in.`);
   }, 800);
 });
 </script>
