@@ -154,7 +154,7 @@ function articleIndexFromUrl(url) {
       relatedEl.innerHTML = `
         <h3>Read more in ${sectionLabel(section)}</h3>
         <ul>
-          ${picks.map(p => `<li><a href="${p.url}">${p.title}</a></li>`).join('')}
+         ${picks.map(p => `<li><a href="${p.url}" class="read-more">${p.title}</a></li>`).join('')}
         </ul>
       `;
     })
