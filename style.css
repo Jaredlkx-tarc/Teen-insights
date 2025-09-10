@@ -906,9 +906,20 @@ footer {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
+}
+
+/* Mobile: 1 column */
+.team-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Desktop: 2 columns */
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .team-member {
@@ -917,8 +928,8 @@ footer {
 
 .team-member img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* keeps it perfectly square */
-  object-fit: cover;   /* crops without distortion */
+  aspect-ratio: 1 / 1; /* perfect square */
+  object-fit: cover;
   border-radius: 8px;
 }
 
