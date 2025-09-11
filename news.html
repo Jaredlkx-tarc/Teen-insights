@@ -137,7 +137,7 @@
   <button class="close-btn" aria-label="Close login">✖</button>
   <h2>Member Login</h2>
 
-
+  <!-- Google Sign-In button -->
   <form id="loginForm">
     <div id="g_id_onload"
          data-client_id="25745299454-r65pnid81r42mrcvkiaooujcl759djol.apps.googleusercontent.com"
@@ -154,13 +154,9 @@
          data-logo_alignment="left">
     </div>
   </form>
-
-  <p class="signup-link">
-    <a href="#" id="signupLink">Create an account</a>
-  </p>
 </aside>
 
-
+<!-- Load Google Identity Services -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <script>
@@ -271,31 +267,6 @@ function parseJwt(token) {
   }).join(''));
   return JSON.parse(jsonPayload);
 }
-
-// --- Fake sign-up (still works for non-Google accounts) ---
-document.getElementById('signupLink').addEventListener('click', function(e) {
-  e.preventDefault();
-  const username = prompt("Choose a username:");
-  const password = prompt("Create a password:");
-
-  if (!username || !password) {
-    alert("Please fill in all fields to create an account.");
-    return;
-  }
-
-  setCookie('loggedInUser', username, 7);
-  document.getElementById('loginForm').innerHTML = `
-    <p style="color:green;">✅ Account created successfully! Welcome, ${username}!</p>
-    <button id="logoutBtn">Logout</button>
-  `;
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    deleteCookie('loggedInUser');
-    location.reload();
-  });
-  setTimeout(() => {
-    loginPanel.classList.remove('open');
-  }, 1000);
-});
 </script>
 </body>
 </html>
