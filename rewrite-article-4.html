@@ -87,15 +87,46 @@ Moreover, humour is effective because it makes you more relatable and human. Whi
   </a>.
 </p>    
     
-<section id="related" class="related"></section>        
-    <nav class="post-nav">
-      <a href="ext-rewrite.html" class="read-more">← Back to Re:write</a>
-    </nav>
+ <section class="comments">
+        <h3>💬 Comments</h3>
+        <div id="disqus_thread"></div>
+      </section>
+
+      <script>
+       var disqus_config = function () {
+  this.page.url = 'https://jaredlkx-tarc.github.io/Teen-insights/lifesytle-rewrite-4.html';
+  this.page.identifier = 'rewrite-article-4';
+};
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://teen-insights.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>
+        Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+
+
+      <section id="related" class="related"></section>   
+      <nav class="post-nav">
+        <a href="ext-entertainment.html" class="read-more">← Back to Entertainment News</a>
+      </nav>
+    </article>
+
   </main>
 </div>
 
-<footer>© 2025 Teen Insights</footer>
+<footer>
+  © 2025 Teen Insights. Built by teens in Malaysia.
+</footer>
+ 
+
 <script>
+
+  
 // --- Config: your JSON filename ---
 const ARTICLES_JSON = 'articles.json';
 
@@ -167,6 +198,8 @@ function articleIndexFromUrl(url) {
     });
 })();
 </script>  
+<!-- Disqus Comment Count Script -->
+<script id="dsq-count-scr" src="//teen-insights.disqus.com/count.js" async></script>
   
 </body>
 </html>
