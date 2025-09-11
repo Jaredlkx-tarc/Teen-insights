@@ -80,17 +80,46 @@ One 21-year-old student shared: “Nowadays, people don’t get enough rest beca
 </p>
 <p> The findings show that, while discipline and positive attitudes are important, larger cultural and organisational reforms are required. Work-life balance is no longer a luxury for Malaysia's young people, but rather a requirement for living better, more sustainable lives.
 </p>      
-<!-- Optional: next/previous links or back link -->
-     <section id="related" class="related"></section>   
+    <section class="comments">
+        <h3>💬 Comments</h3>
+        <div id="disqus_thread"></div>
+      </section>
+
+      <script>
+       var disqus_config = function () {
+  this.page.url = 'https://jaredlkx-tarc.github.io/Teen-insights/lifesytle-article-1.html';
+  this.page.identifier = 'lifesytle-article-1';
+};
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://teen-insights.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>
+        Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+
+
+      <section id="related" class="related"></section>   
       <nav class="post-nav">
-      <a href="ext-lifestyle.html" class="read-more">← Back to Lifestyle</a>
-    </nav>
+        <a href="ext-entertainment.html" class="read-more">← Back to Entertainment News</a>
+      </nav>
+    </article>
+
   </main>
 </div>
 
-<footer>© 2025 Teen Insights</footer>
+<footer>
+  © 2025 Teen Insights. Built by teens in Malaysia.
+</footer>
+ 
 
 <script>
+
+  
 // --- Config: your JSON filename ---
 const ARTICLES_JSON = 'articles.json';
 
@@ -161,6 +190,9 @@ function articleIndexFromUrl(url) {
       // console.error('Related builder error:', err);
     });
 })();
-</script>    
+</script>  
+<!-- Disqus Comment Count Script -->
+<script id="dsq-count-scr" src="//teen-insights.disqus.com/count.js" async></script>
+  
 </body>
 </html>
