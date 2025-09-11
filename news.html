@@ -136,18 +136,33 @@
 <aside class="side-panel login-panel" id="loginPanel">
   <button class="close-btn" aria-label="Close login">✖</button>
   <h2>Member Login</h2>
+
+
   <form id="loginForm">
-    <input type="text" placeholder="Username" required />
-    <input type="password" placeholder="Password" required />
-    <button type="submit">Login</button>
+    <div id="g_id_onload"
+         data-client_id="25745299454-r65pnid81r42mrcvkiaooujcl759djol.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+    </div>
   </form>
+
   <p class="signup-link">
     <a href="#" id="signupLink">Create an account</a>
   </p>
 </aside>
 
 
-  
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
 <script>
 // Panel toggles
 const searchToggle = document.getElementById('searchToggle');
@@ -157,21 +172,21 @@ const loginPanel = document.getElementById('loginPanel');
 
 document.querySelectorAll('.close-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    searchPanel.classList.remove('open');
-    loginPanel.classList.remove('open');
+    searchPanel?.classList.remove('open');
+    loginPanel?.classList.remove('open');
   });
 });
-searchToggle.addEventListener('click', () => {
-  searchPanel.classList.add('open');
-  loginPanel.classList.remove('open');
+searchToggle?.addEventListener('click', () => {
+  searchPanel?.classList.add('open');
+  loginPanel?.classList.remove('open');
 });
-loginToggle.addEventListener('click', () => {
-  loginPanel.classList.add('open');
-  searchPanel.classList.remove('open');
+loginToggle?.addEventListener('click', () => {
+  loginPanel?.classList.add('open');
+  searchPanel?.classList.remove('open');
 });
 
 // Search function
-document.getElementById('searchForm').addEventListener('submit', function(e) {
+document.getElementById('searchForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
   const query = this.q.value.toLowerCase();
   fetch('articles.json')
@@ -190,7 +205,6 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     });
 });
 
-
 // --- Cookie helpers ---
 function setCookie(name, value, days) {
   const date = new Date();
@@ -198,7 +212,6 @@ function setCookie(name, value, days) {
   const expires = "expires=" + date.toUTCString();
   document.cookie = `${name}=${value};${expires};path=/`;
 }
-
 function getCookie(name) {
   const cname = name + "=";
   const decodedCookie = decodeURIComponent(document.cookie);
@@ -211,7 +224,6 @@ function getCookie(name) {
   }
   return "";
 }
-
 function deleteCookie(name) {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
@@ -229,31 +241,38 @@ if (savedUser) {
   });
 }
 
-// --- Fake login with username ---
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const username = this.querySelector('input[type="text"]').value;
-  const password = this.querySelector('input[type="password"]').value;
+// --- Google login callback ---
+function handleCredentialResponse(response) {
+  const data = parseJwt(response.credential);
 
-  document.getElementById('loginForm').innerHTML = '<p>Logging in...</p>';
+  setCookie('loggedInUser', data.name, 7);
+
+  document.getElementById('loginForm').innerHTML = `
+    <p style="color:green;">✅ Welcome back, ${data.name}!</p>
+    <img src="${data.picture}" alt="Profile Picture" style="max-width:50px;border-radius:50%;">
+    <button id="logoutBtn">Logout</button>
+  `;
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    deleteCookie('loggedInUser');
+    location.reload();
+  });
 
   setTimeout(() => {
-    setCookie('loggedInUser', username, 7); // store for 7 days
-    document.getElementById('loginForm').innerHTML = `
-      <p style="color:green;">✅ Welcome back, ${username}!</p>
-      <button id="logoutBtn">Logout</button>
-    `;
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      deleteCookie('loggedInUser');
-      location.reload();
-    });
-    setTimeout(() => {
-      loginPanel.classList.remove('open');
-    }, 1000);
+    loginPanel.classList.remove('open');
   }, 1000);
-});
+}
 
-// --- Fake sign-up (no "Creating your account..." popup) ---
+function parseJwt(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+  return JSON.parse(jsonPayload);
+}
+
+// --- Fake sign-up (still works for non-Google accounts) ---
 document.getElementById('signupLink').addEventListener('click', function(e) {
   e.preventDefault();
   const username = prompt("Choose a username:");
@@ -264,7 +283,6 @@ document.getElementById('signupLink').addEventListener('click', function(e) {
     return;
   }
 
-  // Directly set cookie and welcome user
   setCookie('loggedInUser', username, 7);
   document.getElementById('loginForm').innerHTML = `
     <p style="color:green;">✅ Account created successfully! Welcome, ${username}!</p>
@@ -279,6 +297,5 @@ document.getElementById('signupLink').addEventListener('click', function(e) {
   }, 1000);
 });
 </script>
-
 </body>
 </html>
